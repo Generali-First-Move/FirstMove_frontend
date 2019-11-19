@@ -11,9 +11,9 @@
                 </div>
             </div>
         </nav>
-
     </div>
 </template>
+
 
 <style>
 #home{
@@ -34,5 +34,7 @@
         font-variant: small-caps;
         font-size: large;
     }
+
+
 
 </style>
