@@ -4,25 +4,27 @@ import Showpreference from '@/views/Showpreference.vue'
 import Result from '@/views/Result'
 import Home from '@/views/Home'
 
+
+
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    component: Home
-  },
-  {
-    path: '/result',
-    component: Result
-  },
-  {
-    path: '/show-preference',
-    component: Showpreference
-  },
+    {
+        path: '/',
+        component: Home
+    },
+    {
+        path: '/result',
+        component: Result
+    },
+    {
+        path: '/show-preference',
+        component: Showpreference
+    },
 
 ]
 
 const router = new VueRouter({
-  routes
+    routes
 })
 export default router

@@ -1,6 +1,6 @@
 
 <template>
-    <div id="result">
+    <div id="result" class="offset">
         <br>
         <div class="row">
             <div class="col-md-5">
@@ -396,7 +396,7 @@ export default {
 
     }
     #result{
-        background-color: #C5281C;
+        background-color: #ffffff;
         height: 800px;
         color: white;
         padding-left: 15px;

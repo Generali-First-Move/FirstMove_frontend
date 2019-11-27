@@ -6,9 +6,10 @@ import '@fortawesome/fontawesome-free/sprites/solid.svg'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
+
+
 
 Vue.component('VueSlider', VueSlider)
 
@@ -27,4 +28,9 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
+
+
+import Slider from '@jeremyhamm/vue-slider'
+
+Vue.use(Slider)
 
