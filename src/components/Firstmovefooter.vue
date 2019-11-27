@@ -59,5 +59,10 @@
         margin-top: 3rem;
     }
 
+    footer p{
+        position: relative;
+        top: 25px;
+        left: 8px;
+    }
 
 </style>
