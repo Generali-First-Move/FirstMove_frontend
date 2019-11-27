@@ -4,6 +4,7 @@
         <div class="row">
             <div class="col-md-5">
                 <h1>Ihre Auswahl:</h1>
+                <h3 id="prefernce">Persönliche Preferenzen:</h3>
                 <form action="/change" id="filter">
                     <button id="btn-filter" type="button" class="btn btn-primary px-3"><i class="fas fa-filter"
                                                                                           aria-hidden="true"></i>Filter
@@ -13,7 +14,8 @@
             </div>
         </div>
 
-        <div class="form-group row">
+
+        <div class="form-group google">
             <div class="col-md-9">
                 <div class="vue-map-container">
                     <GmapMap :center="center" @center_changed="updateCenter" :zoom="zoom" @zome_changed="updateZoom"
@@ -427,42 +429,36 @@ export default {
 -->
 
 <style>
-
-    .google-map {
-        width: 800px;
-        height: 600px;
-        margin: 0 auto;
-        background: gray;
-    }
-
     .fas {
         color: dodgerblue;
     }
 
     .vue-map-container {
         height: 550px;
-        max-width: 2000px;
-        width: 100%;
-        margin: 5px;
         text-align: left;
+        margin-bottom: 50px;
+        right: 15px;
+        width: 2200px;
     }
 
     #filter {
-        width: 75px;
-        padding-rigt: 1000px;
+        position: relative;
+        right: 70px;
+        bottom: 42px;
     }
 
     #btn-filter {
         width: 100px;
     }
 
-    .form-group {
-
-        margin-top: 20px;
-        right: 20px;
-        width:100%;
-
+    .google {
+        text-align: left;
+        height: auto;
+        margin-left: 10px;
+        margin-top: 55px;
+        width: auto;
     }
+
 
     #result {
         background-color: #ffffff;
@@ -501,6 +497,13 @@ export default {
         font-variant: small-caps;
     }
 
+    #prefernce
+    {
+        font-variant: small-caps;
+        position: relative;
+        right: 289px;
+        color:black;
+    }
     #result h5 {
         color: black;
     }
@@ -511,14 +514,17 @@ export default {
 
     #result h1 {
         text-align: left;
+        font-size: 2.5rem;
+        color: black;
+        font-variant-caps: inherit;
+    }
+
+    #result h3 {
+
     }
 
     #link p {
         color: black;
-    }
-
-    .col-md-1 {
-        text-align: left;
     }
 
     .col-md-3 {
@@ -529,24 +535,18 @@ export default {
 
     .col-md-5 {
         text-align: center;
-        padding-bottom: 5px;
+        top: 105px;
     }
 
     .col-md-9 {
         text-align: left;
-        padding-right: 60px;
-    }
+        max-width: 100%;
 
-    {
-        left: 201px
-    ;
-    }
-    .google-maps {
-        text-align: left;
     }
 
     #result row {
         text-align: center;
+        padding-top: 102px;
     }
 
 
@@ -658,10 +658,6 @@ export default {
         border-radius: 0 0 3px 3px;
         box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.5);
         color: red;
-    }
-
-    .h3
-    {
     }
 
 </style>

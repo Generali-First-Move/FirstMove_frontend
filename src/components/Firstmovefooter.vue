@@ -15,7 +15,7 @@
                         <a href="https://www.instagram.com/generaliinformatik/?hl=de" target="_blank"><i class="fab fa-instagram"></i> </a>
                     </div>
                 <hr class="socket">
-                &copy; First Move Theme
+                <p>&copy; First Move Theme</p>
             </div>
         </footer>
     </div>
