@@ -9,15 +9,15 @@ import router from './router'
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
 
+import * as VueGoogleMaps from "vue2-google-maps";
 
 
 Vue.component('VueSlider', VueSlider)
 
 require("dotenv").config();
 
-import * as VueGoogleMaps from "vue2-google-maps";
 Vue.use(VueGoogleMaps, {
-  load: { key: "AIzaSyCiPLPCrNjnpaHnIOqCnTV9v4RY0MAqTwc",
+  load: { key: "AIzaSyD5UnUjfGRvPefBbTgLr-iy3CZ5BD99dBg",
     libraries:"places" // necessary for places input
   }
 });

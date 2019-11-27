@@ -1,4 +1,3 @@
-
 <template>
     <div id="result" class="offset">
         <br>
@@ -6,7 +5,9 @@
             <div class="col-md-5">
                 <h1>Ihre Auswahl:</h1>
                 <form action="/change" id="filter">
-                    <button id="btn-filter" type="button" class="btn btn-primary px-3"><i class="fas fa-filter" aria-hidden="true"></i>Filter</button>
+                    <button id="btn-filter" type="button" class="btn btn-primary px-3"><i class="fas fa-filter"
+                                                                                          aria-hidden="true"></i>Filter
+                    </button>
 
                 </form>
             </div>
@@ -15,87 +16,89 @@
         <div class="form-group row">
             <div class="col-md-9">
                 <div class="vue-map-container">
-                        <GmapMap :center="center" :zoom="zoom" :map-type-id="mapTypeId" ref="google-maps">
-                            <GmapMarker
-                                    v-for="(item, index) in markers"
+                    <GmapMap :center="center" @center_changed="updateCenter" :zoom="zoom" @zome_changed="updateZoom"
+                             :map-type-id="mapTypeId">
+                        <GmapMarker v-on:click="displaySum"
                                     :key="index"
+                                    v-for="(item, index) in markers"
+                                    :zoom=item.zoom
                                     :position="item.position"
                                     :clickable="true"
+                                    :draggable="true"
+                                    :label="item.label"
                                     :icon="item.icon"
                                     @click="center = item.position"
-                            />
-                            <GmapCircle
-                                    v-for="(pin, index) in circle"
-                                    :key="index"
-                                    :center="pin.position"
-                                    :radius="pin.radius"
-                                    :visible="true"
-                                    :options="{fillColor:pin.fillColor,fillOpacity:pin.fillOpacity}"
-                            ></GmapCircle>
-                        </GmapMap>
+                        />
+                        <GmapCircle
+                                v-for="(pin, index) in circle"
+                                :key="index"
+                                :center="pin.position"
+                                :radius="pin.radius"
+                                :visible="true"
+                                :options="{fillColor:pin.fillColor,fillOpacity:pin.fillOpacity}"
+                        ></GmapCircle>
+                    </GmapMap>
                 </div>
             </div>
-                <!--
-                 <div class="vue-map-container">
-                 <GmapMap :center="center" :zoom="zoom" :map-type-id="mapTypeId" ref="google-maps">
-                     <GmapMarker
-                             v-for="(item, index) in markers"
-                             :key="index"
-                             :position="item.position"
-                             :clickable="true"
-                             :icon="markerOptions"
-                             @click="center = item.position"
+            <!--
+             <div class="vue-map-container">
+             <GmapMap :center="center" :zoom="zoom" :map-type-id="mapTypeId" ref="google-maps">
+                 <GmapMarker
+                         v-for="(item, index) in markers"
+                         :key="index"
+                         :position="item.position"
+                         :clickable="true"
+                         :icon="markerOptions"
+                         @click="center = item.position"
 
-                     />
-                     <GmapCircle
-                             v-for="(pin, index) in markers"
-                             :key="index"
-                             :center="pin.position"
-                             :radius="10"
-                             :visible="true"
-                             :options="{fillColor:'red',fillOpacity:0.8}"
-                     ></GmapCircle>
-                 </GmapMap>
+                 />
+                 <GmapCircle
+                         v-for="(pin, index) in markers"
+                         :key="index"
+                         :center="pin.position"
+                         :radius="10"
+                         :visible="true"
+                         :options="{fillColor:'red',fillOpacity:0.8}"
+                 ></GmapCircle>
+             </GmapMap>
 
-                 </div>
-                     -->
-                <!--
-                                <div class="vue-map-container">
-                                <GmapMap :center="center" :map-type-id="mapTypeId" :zoom="16">
-                                    <GmapMarker
-                                            v-for="(item, index) in markers"
-                                            :key="index"
-                                            :position="item.position"
-                                            @click="center = item.position"
-                                    />
-                                </GmapMap>
-                                </div>
-                    -->
-                <!--
-                    <div class="google-map" ref="googleMap"></div>
-                     <template v-if="Boolean(this.google) && Boolean(this.map)">
-                              <slot
-                                         :google="google"
-                                         :map="map"
-                                 />
-                             </template>
-                             -->
-                <!--
-                            <div class="google-maps">
-                                <iframe id="map"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10094.445629951531!2d6.084487735032457!3d50.76423872231622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c09be02b9ad17f%3A0x262760fd637fdee1!2s52066%20Burtscheid!5e0!3m2!1sde!2sde!4v1573582989242!5m2!1sde!2sde" width="780" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                            </div>
+             </div>
                  -->
-
-
+            <!--
+                            <div class="vue-map-container">
+                            <GmapMap :center="center" :map-type-id="mapTypeId" :zoom="16">
+                                <GmapMarker
+                                        v-for="(item, index) in markers"
+                                        :key="index"
+                                        :position="item.position"
+                                        @click="center = item.position"
+                                />
+                            </GmapMap>
+                            </div>
+                -->
+            <!--
+                <div class="google-map" ref="googleMap"></div>
+                 <template v-if="Boolean(this.google) && Boolean(this.map)">
+                          <slot
+                                     :google="google"
+                                     :map="map"
+                             />
+                         </template>
+                         -->
+            <!--
+                        <div class="google-maps">
+                            <iframe id="map"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10094.445629951531!2d6.084487735032457!3d50.76423872231622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c09be02b9ad17f%3A0x262760fd637fdee1!2s52066%20Burtscheid!5e0!3m2!1sde!2sde!4v1573582989242!5m2!1sde!2sde" width="780" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+             -->
 
 
             <div class="col-md-3">
                 <h3>Präferenzen-Erfüllung</h3>
                 <fieldset>
                     <details>
-                        <summary id="City1"> Stadt Bereich 1: </summary>
+                        <summary id="City1"> Stadt Bereich 1:</summary>
                         <div id="box_green">
-                            <h3 class ="Pro">Pro:</h3>
+                            <h3 class="Pro">Pro:</h3>
                             <table style="width:100%">
                                 <tr>
                                     <th><i class="fas fa-check"></i></th>
@@ -108,7 +111,7 @@
                             </table>
 
                             <br>
-                            <h3 class ="Contra">Contra:</h3>
+                            <h3 class="Contra">Contra:</h3>
                             <table>
                                 <tr>
                                     <th><i class="fas fa-times-circle"></i></th>
@@ -121,9 +124,9 @@
                     </details>
 
                     <details>
-                        <summary id="City2"> Stadt Bereich 2: </summary>
-                        <div id ="box_orange">
-                            <h3 class ="Pro">Pro:</h3>
+                        <summary id="City2"> Stadt Bereich 2:</summary>
+                        <div id="box_orange">
+                            <h3 class="Pro">Pro:</h3>
                             <table style="width:100%">
                                 <tr>
                                     <th><i class="fas fa-check"></i></th>
@@ -136,7 +139,7 @@
                             </table>
 
                             <br>
-                            <h3 class ="Contra">Contra:</h3>
+                            <h3 class="Contra">Contra:</h3>
                             <table>
                                 <tr>
                                     <th><i class="fas fa-times-circle"></i></th>
@@ -149,9 +152,9 @@
                     </details>
 
                     <details>
-                        <summary id="City3"> Stadt Bereich 3: </summary>
+                        <summary id="City3"> Stadt Bereich 3:</summary>
                         <div id="box_red">
-                            <h3 class ="Pro">Pro:</h3>
+                            <h3 class="Pro">Pro:</h3>
                             <table style="width:100%">
                                 <tr>
                                     <th><i class="fas fa-check"></i></th>
@@ -164,7 +167,7 @@
                             </table>
 
                             <br>
-                            <h3 class ="Contra">Contra:</h3>
+                            <h3 class="Contra">Contra:</h3>
                             <table>
                                 <tr>
                                     <th><i class="fas fa-times-circle"></i></th>
@@ -215,6 +218,7 @@
     }*/
 
     export default {
+        name: 'vue-map',
         data() {
             return {
                 center: {lat: 50.775346, lng: 6.083887},
@@ -227,16 +231,15 @@
                     {
                         Id: "1",
                         name: "City1",
-                        content: '<img class="circle_img" src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" alt="blue" style="border: 3px solid #FF3333">',
+                        content: '<img class="circle_img" src="http://maps.google.com/mapfiles/ms/icons/orange-dot.png" alt="blue" style="border: 3px solid #FF3333">',
                         position: {
                             lat: 50.7753455,
                             lng: 6.0838868
                         },
-                        icon:"http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+                        icon: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
 
 
                     },
-
                     {
 
                         Id: "2",
@@ -245,10 +248,10 @@
                         position: {
                             lat: 50.774720, lng: 6.083920
                         },
-                        icon:"http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                        radius:"15",
+                        icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                        radius: "15",
                         fillOpacity: "0.8",
-                        fillColor:"red",
+                        fillColor: "red",
                     },
                     {
                         Id: "3",
@@ -257,42 +260,42 @@
                         position: {
                             lat: 50.776026, lng: 6.089590
                         },
-                        icon:"http://maps.google.com/mapfiles/ms/icons/green-dot.png",
-                        radius:"5",
+                        icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+                        radius: "5",
                         fillOpacity: "0.8",
-                        fillColor:"green",
+                        fillColor: "green",
                     },
 
                 ],
 
                 circle: [
                     {
-                        id:"1",
+                        id: "1",
                         position: {
                             lat: 50.7753455,
                             lng: 6.0838868,
                         },
-                        radius:30,
+                        radius: 30,
                         fillOpacity: "0.8",
-                        fillColor:"blue"
+                        fillColor: "orange"
                     },
                     {
-                        id:"2",
+                        id: "2",
                         position: {
                             lat: 50.774720, lng: 6.083920
                         },
-                        radius:20,
+                        radius: 20,
                         fillOpacity: "0.8",
-                        fillColor:"red",
+                        fillColor: "red",
                     },
                     {
-                        id:"3",
+                        id: "3",
                         position: {
                             lat: 50.776026, lng: 6.089590
                         },
-                        radius:10,
+                        radius: 10,
                         fillOpacity: "0.8",
-                        fillColor:"green",
+                        fillColor: "green",
                     }
 
                 ]
@@ -312,8 +315,75 @@
             }
         },
         methods: {
+
+            displaySum: function (event) {
+                // eslint-disable-next-line no-console
+                console.log(event);
+
+            },
+
+            init: function () {
+                this.$gmapOptions =
+                    {
+                        center: new google.maps.LatLng(23, 23),
+                        zoom: 17,
+                        myTypeId: 'terrain'
+                    }
+            },
+            mapRclicked(mouseArgs) {
+                const createdMarker = this.addMarker();
+                createdMarker.position.lat = mouseArgs.latLng.lat();
+                createdMarker.position.lng = mouseArgs.latLng.lng();
+            },
+            addMarker(id, name, lat, lng, color) {
+
+                this.markers.push(
+                    {
+                        id: "id",
+                        name: "name",
+                        position: {
+                            lat: lat, lng: lng
+                        },
+                        opacity: 1,
+                        draggable: true,
+                        enabled: true,
+                        clicked: 0,
+                        rightClicked: 0,
+                        color: color,
+                        icon: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
+
+                    });
+                return this.markers;
+            },
+
+
+            updateCircle(prop, value) {
+                if (prop === 'radius') {
+                    this.radius = value;
+                } else if (prop === 'bounds') {
+                    this.circleBounds = value;
+                }
+            },
+            updatePlace(place) {
+                if (place && place.geometry && place.geometry.location) {
+                    var marker = this.addMarker();
+                    marker.position.lat = place.geometry.location.lat();
+                    marker.position.lng = place.geometry.location.lng();
+                }
+            },
+
+            updateCenter(center) {
+                this.center = {
+                    lat: center.lat(),
+                    lng: center.lng()
+                };
+            },
+
+            updateZoom(zoom) {
+                this.zoom = zoom;
+            },
         }
-    }
+    };
 </script>
 
 
@@ -372,30 +442,29 @@ export default {
     .vue-map-container {
         height: 550px;
         max-width: 2000px;
-        //width: 100%;
-        margin:5px;
+        width: 100%;
+        margin: 5px;
         text-align: left;
     }
 
-    #filter
-    {
+    #filter {
         width: 75px;
         padding-rigt: 1000px;
     }
 
-    #btn-filter
-    {
-        width:100px;
+    #btn-filter {
+        width: 100px;
     }
 
-    .form-group
-    {
+    .form-group {
 
         margin-top: 20px;
-        right:20px;
+        right: 20px;
+        width:100%;
 
     }
-    #result{
+
+    #result {
         background-color: #ffffff;
         height: 800px;
         color: white;
@@ -403,7 +472,8 @@ export default {
         margin-top: 5px;
 
     }
-    #result fieldset{
+
+    #result fieldset {
         background-color: white;
         border-radius: 4px;
         color: black;
@@ -411,72 +481,71 @@ export default {
 
     }
 
-    #result .Pro{
-        color:green;
-        text-decoration: underline;
-        text-decoration-color: black;
-    }
-    #result .Contra
-    {
-        color:red;
+    #result .Pro {
+        color: green;
         text-decoration: underline;
         text-decoration-color: black;
     }
 
-    #footer p{
+    #result .Contra {
+        color: red;
+        text-decoration: underline;
+        text-decoration-color: black;
+    }
+
+    #footer p {
         color: black;
     }
-    #result h3{
+
+    #result h3 {
         font-variant: small-caps;
     }
 
-    #result h5{
+    #result h5 {
         color: black;
     }
 
-    #result h6
-    {
-        top:200px;
+    #result h6 {
+        top: 200px;
     }
 
-    #result h1
-    {
+    #result h1 {
         text-align: left;
     }
-    #link p{
+
+    #link p {
         color: black;
     }
-    .col-md-1
-    {
+
+    .col-md-1 {
         text-align: left;
     }
 
-    .col-md-3{
-        right:20px;
+    .col-md-3 {
+        right: 20px;
         text-align: left;
         bottom: 45px;
     }
 
-    .col-md-5
-    {
+    .col-md-5 {
         text-align: center;
         padding-bottom: 5px;
     }
-    .col-md-9
-    {
+
+    .col-md-9 {
         text-align: left;
         padding-right: 60px;
     }
 
     {
-        left: 201px;
+        left: 201px
+    ;
     }
-    .google-maps
-    {
+    .google-maps {
         text-align: left;
     }
 
-    #result row{
+    #result row {
         text-align: center;
     }
 
@@ -493,8 +562,9 @@ export default {
         width: 75vw;
         margin: 0 auto;
         background-color: #BFBFBF;
-        box-shadow:0 -1px 1px 5px #BFBFBF;
+        box-shadow: 0 -1px 1px 5px #BFBFBF;
     }
+
     details {
         padding: .5rem;
         font: 1.25rem/1.2 sans-serif;
@@ -507,10 +577,10 @@ export default {
 
         background-color: limegreen;
         font: bold 1.25rem/2 sans-serif;
-        color:floralwhite;
+        color: floralwhite;
         border: none;
         border-radius: 4px;
-        box-shadow: 0 -1px 1px 1px rgba(0,0,0,0.5);
+        box-shadow: 0 -1px 1px 1px rgba(0, 0, 0, 0.5);
         cursor: pointer;
         list-style: none; /* Triangle not shown */
     }
@@ -520,10 +590,10 @@ export default {
 
         background-color: darkorange;
         font: bold 1.25rem/2 sans-serif;
-        color:floralwhite;
+        color: floralwhite;
         border: none;
         border-radius: 4px;
-        box-shadow: 0 -1px 1px 1px rgba(0,0,0,0.5);
+        box-shadow: 0 -1px 1px 1px rgba(0, 0, 0, 0.5);
         cursor: pointer;
         list-style: none; /* Triangle not shown */
     }
@@ -533,39 +603,41 @@ export default {
 
         background-color: red;
         font: bold 1.25rem/2 sans-serif;
-        color:floralwhite;
+        color: floralwhite;
         border: none;
         border-radius: 4px;
-        box-shadow: 0 -1px 1px 1px rgba(0,0,0,0.5);
+        box-shadow: 0 -1px 1px 1px rgba(0, 0, 0, 0.5);
         cursor: pointer;
         list-style: none; /* Triangle not shown */
     }
 
-    #box_green
-    {
+    #box_green {
         background-color: rgba(136, 243, 147, 1);
         opacity: 0.8;
     }
-    #box_red
-    {
+
+    #box_red {
         background: rgba(255, 66, 96, 1);
         opacity: 0.75;
 
     }
-    #box_orange
-    {
-        background: rgba(255,100,20,0.8);
+
+    #box_orange {
+        background: rgba(255, 100, 20, 0.8);
         opacity: 0.85;
         height: auto;
     }
+
     /* Triangle not shown - Style for Webkit-Browser */
     summary::-webkit-details-marker {
         display: none;
     }
+
     summary::before {
         padding-right: .25rem;
-        content: '+ ';  /* Instead of Triangle closed */
+        content: '+ '; /* Instead of Triangle closed */
     }
+
     details[open] summary::before {
         padding-right: .25rem;
         font-style: italic;
@@ -584,10 +656,12 @@ export default {
         padding: .25rem 1rem;
         background-color: floralwhite;
         border-radius: 0 0 3px 3px;
-        box-shadow: 0 1px 1px 1px rgba(0,0,0,0.5);
+        box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.5);
         color: red;
     }
 
-
+    .h3
+    {
+    }
 
 </style>
