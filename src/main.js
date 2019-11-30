@@ -8,29 +8,23 @@ import App from './App.vue'
 import router from './router'
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
-
-
-
-
-Vue.component('VueSlider', VueSlider)
-
-require("dotenv").config();
 import * as VueGoogleMaps from "vue2-google-maps";
+import Slider from '@jeremyhamm/vue-slider'
+
+Vue.component('VueSlider', VueSlider);
+require("dotenv").config();
+
 Vue.use(VueGoogleMaps, {
   load: { key: "AIzaSyD5UnUjfGRvPefBbTgLr-iy3CZ5BD99dBg",
-    libraries:"places" // necessary for places input
+    libraries: 'places', // This is required if you use the Autocomplete plugin
   }
 });
 
-Vue.config.productionTip = false
-
+Vue.config.productionTip = false;
 new Vue({
   router,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
 
-
-import Slider from '@jeremyhamm/vue-slider'
-
-Vue.use(Slider)
+Vue.use(Slider);
 

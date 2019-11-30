@@ -14,175 +14,207 @@
             </div>
         </div>
 
-
         <div class="form-group google">
-            <div class="col-md-9">
-                <div class="vue-map-container">
-                    <GmapMap :center="center" @center_changed="updateCenter" :zoom="zoom" @zome_changed="updateZoom"
-                             :map-type-id="mapTypeId">
-                        <GmapMarker v-on:click="displaySum"
-                                    :key="index"
-                                    v-for="(item, index) in markers"
-                                    :zoom=item.zoom
-                                    :position="item.position"
-                                    :clickable="true"
-                                    :draggable="true"
-                                    :label="item.label"
-                                    :icon="item.icon"
-                                    @click="center = item.position"
-                        />
-                        <GmapCircle
-                                v-for="(pin, index) in circle"
-                                :key="index"
-                                :center="pin.position"
-                                :radius="pin.radius"
-                                :visible="true"
-                                :options="{fillColor:pin.fillColor,fillOpacity:pin.fillOpacity}"
-                        ></GmapCircle>
-                    </GmapMap>
-                </div>
-            </div>
-            <!--
-             <div class="vue-map-container">
-             <GmapMap :center="center" :zoom="zoom" :map-type-id="mapTypeId" ref="google-maps">
-                 <GmapMarker
-                         v-for="(item, index) in markers"
-                         :key="index"
-                         :position="item.position"
-                         :clickable="true"
-                         :icon="markerOptions"
-                         @click="center = item.position"
 
-                 />
-                 <GmapCircle
-                         v-for="(pin, index) in markers"
-                         :key="index"
-                         :center="pin.position"
-                         :radius="10"
-                         :visible="true"
-                         :options="{fillColor:'red',fillOpacity:0.8}"
-                 ></GmapCircle>
-             </GmapMap>
+            <div class="map-container">
+                <GmapMap :center="center" @center_changed="updateCenter" :zoom="zoom" @zome_changed="updateZoom"
+                         ref="map">
 
-             </div>
-                 -->
-            <!--
-                            <div class="vue-map-container">
-                            <GmapMap :center="center" :map-type-id="mapTypeId" :zoom="16">
-                                <GmapMarker
-                                        v-for="(item, index) in markers"
-                                        :key="index"
-                                        :position="item.position"
-                                        @click="center = item.position"
-                                />
-                            </GmapMap>
-                            </div>
-                -->
-            <!--
-                <div class="google-map" ref="googleMap"></div>
-                 <template v-if="Boolean(this.google) && Boolean(this.map)">
-                          <slot
-                                     :google="google"
-                                     :map="map"
-                             />
-                         </template>
-                         -->
-            <!--
-                        <div class="google-maps">
-                            <iframe id="map"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10094.445629951531!2d6.084487735032457!3d50.76423872231622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c09be02b9ad17f%3A0x262760fd637fdee1!2s52066%20Burtscheid!5e0!3m2!1sde!2sde!4v1573582989242!5m2!1sde!2sde" width="780" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    <GmapMarker
+                            :key="index"
+                            v-for="(item, index) in markers"
+                            :id="item.id"
+                            :zoom=item.zoom
+                            :position="item.position"
+                            :draggable="true"
+                            :label="item.label"
+                            :icon="item.icon"
+                            :clickable="true"
+                            @click="toogle(item,index)"
+
+                    />
+                    <GmapCircle
+                            v-for="(pin, index) in markers"
+                            :key="index"
+                            :id="pin.id"
+                            :center="pin.position"
+                            :radius="pin.radius"
+                            :visible="true"
+                            :options="{fillColor:pin.fillColor,fillOpacity:pin.fillOpacity}">
+
+                    </GmapCircle>
+                    <gmap-info-window
+                            :key="index"
+                            v-for="(item, index) in markers"
+                            :id="item.id"
+                            :options="infoOptions"
+                            :position=" infoPosition"
+                            :opened="infoWinOpen"
+                            :image="item.image"
+                            @closeclick="infoWinOpen=false">
+
+
+                        <div class="InfoWindow">
+                            <div class="backgroundimg"></div>
+
+                            <h2> Willkommen im Stadtteil {{item.name}} </h2>
+
+                            <img :src="getImgUrl(item.image)" v-bind:alt="pic"
+                                 id="picture"
+                                 class="bild"
+                                 width="250"
+                                 height="120"
+                            >
+                            <p>DAS IST EIN TEST</p>
+                            <button @click="closeInfoWindow()">Close</button>
                         </div>
+                    </gmap-info-window>
+
+
+                </GmapMap>
+
+
+            </div>
+
+
+        </div>
+        <!--
+         <div class="vue-map-container">
+         <GmapMap :center="center" :zoom="zoom" :map-type-id="mapTypeId" ref="google-maps">
+             <GmapMarker
+                     v-for="(item, index) in markers"
+                     :key="index"
+                     :position="item.position"
+                     :clickable="true"
+                     :icon="markerOptions"
+                     @click="center = item.position"
+
+             />
+             <GmapCircle
+                     v-for="(pin, index) in markers"
+                     :key="index"
+                     :center="pin.position"
+                     :radius="10"
+                     :visible="true"
+                     :options="{fillColor:'red',fillOpacity:0.8}"
+             ></GmapCircle>
+         </GmapMap>
+
+         </div>
              -->
-
-
-            <div class="col-md-3">
-                <h3>Präferenzen-Erfüllung</h3>
-                <fieldset>
-                    <details>
-                        <summary id="City1"> Stadt Bereich 1:</summary>
-                        <div id="box_green">
-                            <h3 class="Pro">Pro:</h3>
-                            <table style="width:100%">
-                                <tr>
-                                    <th><i class="fas fa-check"></i></th>
-                                    <th>Gute Busanbindung</th>
-                                </tr>
-                                <tr>
-                                    <th><i class="fas fa-check-square"></i></th>
-                                    <th>Nähe Bahnhof</th>
-                                </tr>
-                            </table>
-
-                            <br>
-                            <h3 class="Contra">Contra:</h3>
-                            <table>
-                                <tr>
-                                    <th><i class="fas fa-times-circle"></i></th>
-                                    <th> Innenstadt</th>
-                                </tr>
-                            </table>
-
-                            <br>
+        <!--
+                        <div class="vue-map-container">
+                        <GmapMap :center="center" :map-type-id="mapTypeId" :zoom="16">
+                            <GmapMarker
+                                    v-for="(item, index) in markers"
+                                    :key="index"
+                                    :position="item.position"
+                                    @click="center = item.position"
+                            />
+                        </GmapMap>
                         </div>
-                    </details>
+            -->
+        <!--
+            <div class="google-map" ref="googleMap"></div>
+             <template v-if="Boolean(this.google) && Boolean(this.map)">
+                      <slot
+                                 :google="google"
+                                 :map="map"
+                         />
+                     </template>
+                     -->
+        <!--
+                    <div class="google-maps">
+                        <iframe id="map"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10094.445629951531!2d6.084487735032457!3d50.76423872231622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c09be02b9ad17f%3A0x262760fd637fdee1!2s52066%20Burtscheid!5e0!3m2!1sde!2sde!4v1573582989242!5m2!1sde!2sde" width="780" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </div>
+         -->
+        <div class="col-md-3">
+            <fieldset>
+                <details>
+                    <summary id="City1"> Stadt Bereich 1:</summary>
+                    <div id="box_green">
+                        <h3 class="Pro">Pro:</h3>
+                        <table style="width:100%">
+                            <tr>
+                                <th><i class="fas fa-check"/></th>
+                                <th>Gute Busanbindung</th>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-check-square"/></th>
+                                <th>Nähe Bahnhof</th>
+                            </tr>
+                        </table>
 
-                    <details>
-                        <summary id="City2"> Stadt Bereich 2:</summary>
-                        <div id="box_orange">
-                            <h3 class="Pro">Pro:</h3>
-                            <table style="width:100%">
-                                <tr>
-                                    <th><i class="fas fa-check"></i></th>
-                                    <th>Gute Busanbindung</th>
-                                </tr>
-                                <tr>
-                                    <th><i class="fas fa-check-square"></i></th>
-                                    <th>Nähe Bahnhof</th>
-                                </tr>
-                            </table>
+                        <br>
+                        <h3 class="Contra">Contra:</h3>
+                        <table>
+                            <tr>
+                                <th><i class="fas fa-times-circle"/></th>
+                                <th> Innenstadt</th>
+                            </tr>
+                        </table>
 
-                            <br>
-                            <h3 class="Contra">Contra:</h3>
-                            <table>
-                                <tr>
-                                    <th><i class="fas fa-times-circle"></i></th>
-                                    <th> Innenstadt</th>
-                                </tr>
-                            </table>
+                        <br>
+                    </div>
+                </details>
 
-                            <br>
-                        </div>
-                    </details>
+                <details>
+                    <summary id="City2"> Stadt Bereich 2:</summary>
+                    <div id="box_orange">
+                        <h3 class="Pro">Pro:</h3>
+                        <table style="width:100%">
+                            <tr>
+                                <th><i class="fas fa-check"/></th>
+                                <th>Gute Busanbindung</th>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-check-square"/></th>
+                                <th>Nähe Bahnhof</th>
+                            </tr>
+                        </table>
 
-                    <details>
-                        <summary id="City3"> Stadt Bereich 3:</summary>
-                        <div id="box_red">
-                            <h3 class="Pro">Pro:</h3>
-                            <table style="width:100%">
-                                <tr>
-                                    <th><i class="fas fa-check"></i></th>
-                                    <th>Gute Busanbindung</th>
-                                </tr>
-                                <tr>
-                                    <th><i class="fas fa-check-square"></i></th>
-                                    <th>Nähe Bahnhof</th>
-                                </tr>
-                            </table>
+                        <br>
+                        <h3 class="Contra">Contra:</h3>
+                        <table>
+                            <tr>
+                                <th><i class="fas fa-times-circle"/></th>
+                                <th> Innenstadt</th>
+                            </tr>
+                        </table>
 
-                            <br>
-                            <h3 class="Contra">Contra:</h3>
-                            <table>
-                                <tr>
-                                    <th><i class="fas fa-times-circle"></i></th>
-                                    <th> Innenstadt</th>
-                                </tr>
-                            </table>
+                        <br>
+                    </div>
+                </details>
 
-                            <br>
-                        </div>
-                    </details>
+                <details>
+                    <summary id="City3"> Stadt Bereich 3:</summary>
+                    <div id="box_red">
+                        <h3 class="Pro">Pro:</h3>
+                        <table style="width:100%">
+                            <tr>
+                                <th><i class="fas fa-check"/></th>
+                                <th>Gute Busanbindung</th>
+                            </tr>
+                            <tr>
+                                <th><i class="fas fa-check-square"/></th>
+                                <th>Nähe Bahnhof</th>
+                            </tr>
+                        </table>
 
-                </fieldset>
-            </div>
+                        <br>
+                        <h3 class="Contra">Contra:</h3>
+                        <table>
+                            <tr>
+                                <th><i class="fas fa-times-circle"/></th>
+                                <th> Innenstadt</th>
+                            </tr>
+                        </table>
+
+                        <br>
+                    </div>
+                </details>
+
+            </fieldset>
         </div>
     </div>
 </template>
@@ -220,40 +252,70 @@
     }*/
 
     export default {
-        name: 'vue-map',
+        name: 'Googlemap',
         data() {
             return {
-                center: {lat: 50.775346, lng: 6.083887},
+                map: null,
+                mapLoaded: false,
+                center: {lat: 50.774720, lng: 6.083920},
                 zoom: 17,
                 gestureHandling: 'none',
                 zoomControl: true,
                 mapTypeId: "terrain",
+                picture: null,
+                infoPosition: null,
+                infoContent: false,
+                infoWinOpen: false,
+                infoCurrentKey: null,
+                currentMidx: null,
 
+
+                infoOptions: {
+                    pixelOffset: {
+                        width: 0,
+                        height: -35
+                    }
+                },
                 markers: [
                     {
                         Id: "1",
                         name: "City1",
-                        content: '<img class="circle_img" src="http://maps.google.com/mapfiles/ms/icons/orange-dot.png" alt="blue" style="border: 3px solid #FF3333">',
+                        content: "DAS IST EIN TEST",
                         position: {
                             lat: 50.7753455,
-                            lng: 6.0838868
+                            lng: 6.0838868,
                         },
-                        icon: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
+
+                        icon: {
+                            url: "https://i.ibb.co/Gtx9pyv/home.png",
+                            scaledSize: {width: 48, height: 55},
+                            labelOrigin: {x: 16, y: -10}
+                        },
+                        image: "aachendom.jpeg",
 
 
+                        radius: 55,
+                        fillOpacity: "0.7",
+                        fillColor: "#00FF00"
                     },
-                    {
 
+                    {
                         Id: "2",
                         name: "City2",
-                        content: '<img class="circle_img" src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="red" style="border: 3px solid #FF3333">',
+                        content: "DAS IST EIN TEST2",
                         position: {
-                            lat: 50.774720, lng: 6.083920
+                            lat: 50.774720, lng: 6.085920
                         },
-                        icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                        radius: "15",
-                        fillOpacity: "0.8",
-                        fillColor: "red",
+                        icon:
+                            {
+                                url: "https://i.ibb.co/chfqBTq/home-location-marker-2.png",
+                                scaledSize: {width: 50, height: 48},
+                                labelOrigin: {x: 16, y: -10}
+                            },
+                        image: "aachenjva.jpeg",
+                        radius: 50,
+                        fillOpacity: "0.6",
+                        fillColor: "#40ff00",
                     },
                     {
                         Id: "3",
@@ -262,10 +324,19 @@
                         position: {
                             lat: 50.776026, lng: 6.089590
                         },
-                        icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
-                        radius: "5",
-                        fillOpacity: "0.8",
-                        fillColor: "green",
+                        icon:
+                            {
+                                url: "https://i.ibb.co/chfqBTq/home-location-marker-2.png",
+                                scaledSize: {width: 50, height: 48},
+                                labelOrigin: {x: 16, y: -10}
+                            },
+                        image: "aachenstadt.jpeg",
+
+
+                        radius: 45,
+                        fillOpacity: "0.7",
+                        fillColor: "#ccff33",
+
                     },
 
                 ],
@@ -277,27 +348,28 @@
                             lat: 50.7753455,
                             lng: 6.0838868,
                         },
-                        radius: 30,
-                        fillOpacity: "0.8",
-                        fillColor: "orange"
+                        radius: 35,
+
+                        fillOpacity: "0.6",
+                        fillColor: "#00FF00"
                     },
                     {
                         id: "2",
                         position: {
                             lat: 50.774720, lng: 6.083920
                         },
-                        radius: 20,
-                        fillOpacity: "0.8",
-                        fillColor: "red",
+                        radius: 26,
+                        fillOpacity: "0.6",
+                        fillColor: "#56FF44",
                     },
                     {
                         id: "3",
                         position: {
                             lat: 50.776026, lng: 6.089590
                         },
-                        radius: 10,
-                        fillOpacity: "0.8",
-                        fillColor: "green",
+                        radius: 26,
+                        fillOpacity: "0.6",
+                        fillColor: "#E2FF00",
                     }
 
                 ]
@@ -318,19 +390,48 @@
         },
         methods: {
 
-            displaySum: function (event) {
-                // eslint-disable-next-line no-console
-                console.log(event);
+            getImgUrl(pic) {
+                return require('../images/' + pic)
+            },
 
+            toogle: function (marker, idx) {
+                this.infoPosition = marker.position;
+
+
+                //check if its the same marker that was selected if yes toggle
+                if (this.currentMidx === idx) {
+                    this.infoWinOpen = !this.infoWinOpen;
+                }
+                //if different marker set infowindow to open and reset current marker index
+                else {
+                    this.infoWinOpen = true;
+                    this.currentMidx = idx;
+                }
+            },
+
+            closeInfoWindow() {
+                this.infoWinOpen = false;
             },
 
             init: function () {
-                this.$gmapOptions =
-                    {
-                        center: new google.maps.LatLng(23, 23),
-                        zoom: 17,
-                        myTypeId: 'terrain'
-                    }
+                var mapOptions = {
+                    center: new google.maps.LatLng(46.951081, 7.438637),
+                    zoom: 13,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                var marker = new google.maps.Marker({
+                    icon: {
+                        url: 'http://mt.google.com/vt/icon?psize=27&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=50&text=•&scale=1'
+                    },
+                    position: new google.maps.LatLng(46.951081, 7.438637),
+                    title: "My Custom Marker",
+                    animation: google.maps.Animation.DROP
+                });
+
+                // To add the marker to the map, call setMap();
+                marker.setMap(map);
             },
             mapRclicked(mouseArgs) {
                 const createdMarker = this.addMarker();
@@ -434,17 +535,17 @@ export default {
     }
 
     .vue-map-container {
-        height: 550px;
+        height: 480px;
         text-align: left;
         margin-bottom: 50px;
         right: 15px;
-        width: 2200px;
+        width: auto;
     }
 
     #filter {
         position: relative;
-        right: 70px;
-        bottom: 42px;
+        left: 940px;
+        bottom: 36px;
     }
 
     #btn-filter {
@@ -453,10 +554,10 @@ export default {
 
     .google {
         text-align: left;
-        height: auto;
         margin-left: 10px;
         margin-top: 55px;
-        width: auto;
+        width: 1400px;
+        height: 500px;
     }
 
 
@@ -497,13 +598,15 @@ export default {
         font-variant: small-caps;
     }
 
-    #prefernce
-    {
+    #prefernce {
         font-variant: small-caps;
         position: relative;
-        right: 289px;
-        color:black;
+        right: 138px;
+        top: 5px;
+        left: 720px;
+        color: black;
     }
+
     #result h5 {
         color: black;
     }
@@ -528,9 +631,9 @@ export default {
     }
 
     .col-md-3 {
-        right: 20px;
+        right: 10px;
         text-align: left;
-        bottom: 45px;
+        bottom: 10px;
     }
 
     .col-md-5 {
@@ -588,7 +691,7 @@ export default {
     #City2 {
         padding: .25rem 1rem;
 
-        background-color: darkorange;
+        background-color: #88ff00;
         font: bold 1.25rem/2 sans-serif;
         color: floralwhite;
         border: none;
@@ -601,7 +704,7 @@ export default {
     #City3 {
         padding: .25rem 1rem;
 
-        background-color: red;
+        background-color: #edff21;
         font: bold 1.25rem/2 sans-serif;
         color: floralwhite;
         border: none;
@@ -617,13 +720,13 @@ export default {
     }
 
     #box_red {
-        background: rgba(255, 66, 96, 1);
+        background: #edff21;
         opacity: 0.75;
 
     }
 
     #box_orange {
-        background: rgba(255, 100, 20, 0.8);
+        background: #88ff00;
         opacity: 0.85;
         height: auto;
     }
@@ -660,4 +763,23 @@ export default {
         color: red;
     }
 
+    .map-container {
+        color: black;
+        width: auto;
+        height: 500px;
+    }
+
+    .infoWindow {
+        width: auto;
+        height: auto;
+    }
+
+    .backgroundimg {
+        background-image: url("../assets/yingchou-han-IJrIeCs3D4g-unsplash.jpeg");
+        width: 10%;
+        height: 10%;
+        background-size: cover;
+        background-blend-mode: darken;
+        background-position: center center;
+    }
 </style>
