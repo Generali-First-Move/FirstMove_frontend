@@ -2,57 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c34eacc-5a1c-4b69-a758-6c95be558fa7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/FirstMove_frontend.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Adrian_Höppener.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/css/app.0323e9c4.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/css/chunk-vendors.f6d4dddc.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-brands-400.06147b6c.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-brands-400.5063b105.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-brands-400.c5e0f14f.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-brands-400.cccc9d29.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-regular-400.65b286af.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-regular-400.c1a866ec.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-regular-400.c4f508e7.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-regular-400.f5f2566b.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-solid-900.0bff33a5.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-solid-900.333bae20.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-solid-900.44d537ab.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/fonts/fa-solid-900.8e4a6dcc.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/aachendom.2cdd4937.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/aachenjva.fd062794.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/aachenstadt.7bc6ba9d.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/fa-brands-400.a9c4bb73.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/fa-regular-400.7b9568e6.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/fa-solid-900.c2801fb4.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/generali.c5766cb3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/home-location-marker(2).5a17c3b9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/home.45b9cc71.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/logo_transparent.95efac67.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/marker.ad2784db.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/solid.7912e46c.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/img/yingchou-han-IJrIeCs3D4g-unsplash.7ce9b418.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/js/app.75a2bd9c.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/js/app.75a2bd9c.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/js/chunk-vendors.b3322c21.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/js/chunk-vendors.b3322c21.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/aachendom.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/aachenjva.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/aachenstadt.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/green-pin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/green-yellow-pin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/home-location-marker(2).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/yellow-pin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Result.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +26,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1UIpXbfm5iuWZGd9VZXQLbRlAYk" />
   <component name="ProjectLevelVcsManager">
@@ -129,43 +81,60 @@
       <workItem from="1575116827914" duration="6720000" />
       <workItem from="1575124106127" duration="8744000" />
       <workItem from="1575133341416" duration="440000" />
+      <workItem from="1575133791825" duration="583000" />
     </task>
+    <task id="LOCAL-00001" summary="Google Map Change Window Implementation Alphaversion">
+      <created>1575133979636</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575133979636</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Google Map Change Window Implementation Alphaversion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Google Map Change Window Implementation Alphaversion" />
   </component>
   <component name="WindowStateProjectService">
     <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575115447121">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1575115447121" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1575068472352">
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1575133977110">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1575068472352" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1575068472351">
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1575133977110" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1575134183024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1575068472351" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1575068472351">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1575134183024" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1575134183024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1575068472351" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1575068472351">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1575134183024" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1575134183024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1575068472351" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1575134183024" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1575134183024">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1575134183024" />
     <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1575133348574">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1575133348574" />
-    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575133666663">
+    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575134035623">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1575133666663" />
+    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1575134035623" />
   </component>
 </project>
