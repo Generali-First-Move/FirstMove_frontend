@@ -15,16 +15,11 @@
 
         <div class="text-center cityinput offset" id="cityinput">
             <h2>Wohin ziehst du?</h2>
-            <form action="Showpreference.vue">
+            <form @submit="getCity()">
                 <label for="searchcity"></label>
-                <input type="text" placeholder="Stadt/PLZ" name="search" list="search" id ="searchcity" size="40">
-                    <datalist id="search">
-                        <option value="Aachen/52066 Burtscheid"/>
-                        <option value="Aachen/52078 Brand"/>
-                        <option value="Aachen/52078 Forst"/>
-                    </datalist>
+                <input type="text" placeholder="Stadt/PLZ" name="search" v-model="city" id ="searchcity" size="40">
                 <br>
-                <router-link to="/show-preference" class="btn btn-outline-dark btn-lg">Weiter</router-link>
+                <router-link to="/show-preference" type="submit" class="btn btn-outline-dark btn-lg">Weiter</router-link>
             </form>
         </div>
    </div>
@@ -34,7 +29,28 @@
 
 
 <script>
+    import axios from 'axios'
 
+    export default {
+        data: function () {
+            return{
+               city: ""
+            }
+        },
+
+        methods: {
+            getCity() {
+                axios
+                    .post('/api/user', {
+                        city: this.city,
+                    })
+                    .then(function () {
+                        alert("Stadt wurde dem Benutzer erfolgreich hinzugefügt!");
+                    })
+                    .catch(e => alert(e));
+            }
+        }
+    }
 </script>
 
 
