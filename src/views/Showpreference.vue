@@ -3,7 +3,7 @@
         <div class="col-12 narrow text-center">
             <h1>Deine Präferenzen</h1>
             <h3 class="lead">
-                Hier kannst du deine Präferenzen hinzufügen und anpassen
+                Hier kannst du deine Präferenzen für <span><b>{{city}}</b></span> hinzufügen und anpassen
             </h3>
         </div>
 
@@ -166,6 +166,7 @@
 
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/antd.css'
+    import axios from 'axios'
 
 
     export default
@@ -175,6 +176,8 @@
         data ()
         {
             return{
+
+                city: "",
                 min:1,
                 max:10,
 
@@ -196,9 +199,20 @@
                     value15: 1,
 
             }
+        },
+        mounted() {
+            axios
+                .get('api/user')
+                .then(response =>{
+                    this.city = response.data;
+                })
+                .catch(e => alert(e));
         }
 
     }
+
+
+
 
 </script>
 
@@ -355,9 +369,4 @@
         text-align: center;
 
     }
-
-
-
-
-
 </style>
