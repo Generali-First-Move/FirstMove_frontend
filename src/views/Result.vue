@@ -20,6 +20,50 @@
                 <GmapMap :center="center" @center_changed="updateCenter" :zoom="zoom" @zome_changed="updateZoom"
                          ref="map">
 
+                    <gmap-info-window
+                            :options="infoOptions"
+                            :position=" infoPosition"
+                            :opened="infoWinOpen"
+                            @closeclick="infoWinOpen=false">
+
+                        <div class="InfoWindowframe">
+                            <section class="section pb-5">
+
+                                <!--Section heading-->
+                                <h2 class="section-heading h1 pt-4">Willkommen zum Stadtteil: </h2>
+
+                                <div class="Infobox">
+                                    <!--Grid column-->
+                                    <div class="col-lg-9 mb-4">
+
+                                        <!--Form with header-->
+                                        <div class="card">
+                                            <div class="form-header blue accent-1">
+                                                <h3><i class="fas fa-map-marker-alt"></i> {{Name}}</h3>
+                                            </div>
+
+                                            <div class="card-body">
+                                                <div class="pic">
+                                                    <img id="backgroundimage" :src="imgfile" border="0" alt="">
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <div class="description">
+                                                    <div class="html" v-html="infoContent"></div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+                                    </div>
+                                </div>
+
+                            </section>
+                        </div>
+                        <button class="bonbon" @click="closeInfoWindow()">Close</button>
+
+                    </gmap-info-window>
                     <GmapMarker
                             :key="index"
                             v-for="(item, index) in markers"
@@ -30,7 +74,8 @@
                             :label="item.label"
                             :icon="item.icon"
                             :clickable="true"
-                            @click="toogle(item,index)"
+                            @drag="updateCoordinates(item.position)" ,
+                            @click="toogle(item,id)"
 
                     />
                     <GmapCircle
@@ -43,32 +88,6 @@
                             :options="{fillColor:pin.fillColor,fillOpacity:pin.fillOpacity}">
 
                     </GmapCircle>
-                    <gmap-info-window
-                            :key="index"
-                            v-for="(item, index) in markers"
-                            :id="item.id"
-                            :options="infoOptions"
-                            :position=" infoPosition"
-                            :opened="infoWinOpen"
-                            :image="item.image"
-                            @closeclick="infoWinOpen=false">
-
-
-                        <div class="InfoWindow">
-                            <div class="backgroundimg"></div>
-
-                            <h2> Willkommen im Stadtteil {{item.name}} </h2>
-
-                            <img :src="getImgUrl(item.image)" v-bind:alt="pic"
-                                 id="picture"
-                                 class="bild"
-                                 width="250"
-                                 height="120"
-                            >
-                            <p>DAS IST EIN TEST</p>
-                            <button @click="closeInfoWindow()">Close</button>
-                        </div>
-                    </gmap-info-window>
 
 
                 </GmapMap>
@@ -252,24 +271,28 @@
     }*/
 
     export default {
-        name: 'Googlemap',
+        props: ["marker"],
         data() {
             return {
                 map: null,
                 mapLoaded: false,
-                center: {lat: 50.774720, lng: 6.083920},
+                center: { lat: 50.7753455, lng: 6.0838868},
                 zoom: 17,
                 gestureHandling: 'none',
                 zoomControl: true,
                 mapTypeId: "terrain",
                 picture: null,
-                infoPosition: null,
-                infoContent: false,
+                infoPosition: {
+                    lat: 0,
+                    lng: 0
+                },
+                infoContent: '',
                 infoWinOpen: false,
                 infoCurrentKey: null,
                 currentMidx: null,
-
-
+                currentId: null,
+                Name: '',
+                imgfile: '',
                 infoOptions: {
                     pixelOffset: {
                         width: 0,
@@ -280,7 +303,13 @@
                     {
                         Id: "1",
                         name: "City1",
-                        content: "DAS IST EIN TEST",
+                        content: "Der Aachener Dom, auch Hoher Dom zu Aachen, Aachener Münster oder Aachener Marienkirche, ist die Bischofskirche des Bistums Aachen und das bedeutendste Wahrzeichen der Stadt Aachen",
+
+                        content1: "Hier steht ein Text zu  Angeboten und Informationslinks",
+
+                        content2: "Radwandern\n" +
+                            "\n" +
+                            "Erradeln Sie Aachen und sein Umland auf vielen schönen Nebenstraßen - z.B. nach den folgenden Routenvorschlägen ",
                         position: {
                             lat: 50.7753455,
                             lng: 6.0838868,
@@ -291,9 +320,7 @@
                             scaledSize: {width: 48, height: 55},
                             labelOrigin: {x: 16, y: -10}
                         },
-                        image: "aachendom.jpeg",
-
-
+                        img: require("../images/aachendom.jpeg"),
                         radius: 55,
                         fillOpacity: "0.7",
                         fillColor: "#00FF00"
@@ -302,7 +329,7 @@
                     {
                         Id: "2",
                         name: "City2",
-                        content: "DAS IST EIN TEST2",
+                        content: "Das ist Content von Marker 2",
                         position: {
                             lat: 50.774720, lng: 6.085920
                         },
@@ -312,15 +339,17 @@
                                 scaledSize: {width: 50, height: 48},
                                 labelOrigin: {x: 16, y: -10}
                             },
-                        image: "aachenjva.jpeg",
+                        img: require("../images/aachenjva.jpeg"),
                         radius: 50,
                         fillOpacity: "0.6",
                         fillColor: "#40ff00",
                     },
+
+
                     {
                         Id: "3",
                         name: "City3",
-                        content: '<img class="circle_img" src="http://maps.google.com/mapfiles/ms/icons/green-dot.png" alt="green" style="border: 3px solid #FF3333">',
+                        content: 'Das ist Content von Marker 3',
                         position: {
                             lat: 50.776026, lng: 6.089590
                         },
@@ -330,9 +359,7 @@
                                 scaledSize: {width: 50, height: 48},
                                 labelOrigin: {x: 16, y: -10}
                             },
-                        image: "aachenstadt.jpeg",
-
-
+                        img: require("../images/aachenstadt.jpeg"),
                         radius: 45,
                         fillOpacity: "0.7",
                         fillColor: "#ccff33",
@@ -390,16 +417,27 @@
         },
         methods: {
 
-            getImgUrl(pic) {
-                return require('../images/' + pic)
+
+            updateCoordinates(location) {
+                this.coordinates = {
+                    lat: location.latLng.lat(),
+                    lng: location.latLng.lng(),
+                }
             },
+
+            //set after merker end drag
+            gMapFunc(evnt) {
+                this.jdata = {"geo": {"lat": evnt.lat(), "lng": evnt.lng()}};
+            },
+
 
             toogle: function (marker, idx) {
                 this.infoPosition = marker.position;
-
-
+                this.infoContent = this.getInfoWindow(marker);
+                this.Name = marker.name;
+                this.imgfile = marker.img;
                 //check if its the same marker that was selected if yes toggle
-                if (this.currentMidx === idx) {
+                if (this.currentMidx == idx) {
                     this.infoWinOpen = !this.infoWinOpen;
                 }
                 //if different marker set infowindow to open and reset current marker index
@@ -411,8 +449,50 @@
 
             closeInfoWindow() {
                 this.infoWinOpen = false;
+                this.googledefault();
             },
 
+            googledefault()
+            {
+                this.center = {
+                    lat: 50.7753455,
+                    lng: 6.0838868
+
+                };
+            },
+            getInfoWindow: function (marker) {
+
+                return (
+                    `<div class="Info">
+                        <div class="Content">
+                            <table style="width:100%">
+                                <tr style="position: relative;bottom: 10px;">
+                                <th style="font color=#0000FF">Wichtige Informationen: </th>
+                                <td>${marker.content}</td>
+                                </tr>
+
+                                <tr style="position: relative;bottom: 5px;">
+                                <th style="color=#FF0000" >Freizeit:</th>
+                                <td>${marker.content2}
+                                <a href="www.google.de" >Informationsangebot 1</a>
+                                </td>
+                                </tr>
+
+                                <tr style="position: relative;top: 5px;"">
+                                <th style="color=#FF0000" >Andere wichtige Informationen:</th>
+                                <td>${marker.content1}
+                                <a href="www.google.de" >wichtige Information </a>
+                                </td>
+                                </tr>
+                            </table>
+                        </div>
+                </div>`
+                )
+            },
+
+            getImgUrl(pic) {
+                return require("../images/" + pic)
+            },
             init: function () {
                 var mapOptions = {
                     center: new google.maps.LatLng(46.951081, 7.438637),
@@ -458,22 +538,22 @@
                     });
                 return this.markers;
             },
-
-
             updateCircle(prop, value) {
                 if (prop === 'radius') {
                     this.radius = value;
                 } else if (prop === 'bounds') {
                     this.circleBounds = value;
                 }
-            },
+            }
+            ,
             updatePlace(place) {
                 if (place && place.geometry && place.geometry.location) {
                     var marker = this.addMarker();
                     marker.position.lat = place.geometry.location.lat();
                     marker.position.lng = place.geometry.location.lng();
                 }
-            },
+            }
+            ,
 
             updateCenter(center) {
                 this.center = {
@@ -481,11 +561,10 @@
                     lng: center.lng()
                 };
             },
-
             updateZoom(zoom) {
                 this.zoom = zoom;
             },
-        }
+        },
     };
 </script>
 
@@ -535,7 +614,7 @@ export default {
     }
 
     .vue-map-container {
-        height: 480px;
+        height: 700px;
         text-align: left;
         margin-bottom: 50px;
         right: 15px;
@@ -544,8 +623,8 @@ export default {
 
     #filter {
         position: relative;
-        left: 940px;
-        bottom: 36px;
+        left: 1119px;
+        bottom: 38px;
     }
 
     #btn-filter {
@@ -556,18 +635,17 @@ export default {
         text-align: left;
         margin-left: 10px;
         margin-top: 55px;
-        width: 1400px;
-        height: 500px;
+        width: 1478px;
+        height: 730px;
     }
 
 
     #result {
         background-color: #ffffff;
-        height: 800px;
+        height: auto;
         color: white;
         padding-left: 15px;
         margin-top: 5px;
-
     }
 
     #result fieldset {
@@ -601,9 +679,9 @@ export default {
     #prefernce {
         font-variant: small-caps;
         position: relative;
-        right: 138px;
+        right: 40px;
         top: 5px;
-        left: 720px;
+        left: 820px;
         color: black;
     }
 
@@ -769,17 +847,133 @@ export default {
         height: 500px;
     }
 
-    .infoWindow {
+    .InfoWindow {
+        position: relative;
         width: auto;
         height: auto;
     }
 
     .backgroundimg {
         background-image: url("../assets/yingchou-han-IJrIeCs3D4g-unsplash.jpeg");
-        width: 10%;
+        width: 100%;
         height: 10%;
         background-size: cover;
         background-blend-mode: darken;
         background-position: center center;
+    }
+
+    .bild {
+        position: relative;
+    }
+
+    .pic {
+        width: auto;
+        height: auto;
+    }
+
+    #backgroundimage {
+        height: auto;
+        left: 0;
+        margin: 0;
+        min-height: 203%;
+        min-width: auto;
+        top: 0;
+        z-index: -1;
+    }
+
+    gmap-infowindow {
+        position: relative;
+        width: auto;
+        height: auto;
+
+    }
+
+    .InfoWindowframe {
+        position: relative;
+        width: 650px;
+        height: auto;
+    }
+
+    .map-container-6 {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+    }
+
+    .map-container-6 iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .blue.accent-1 {
+        background-color: #82b1ff !important;
+    }
+
+    .form-header {
+        padding: 1rem;
+        margin-top: -3.13rem;
+        margin-bottom: 3rem;
+        color: #fff;
+        text-align: center;
+        border-radius: .125rem;
+        -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .Infobox {
+        position: relative;
+        top: 30px;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .card-body {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-radius: 0 !important;
+    }
+
+.Content
+{
+    position: relative;
+    padding-top: 20px;
+}
+    .gm-style-iw {
+        width: auto !important;
+        top: 0 !important;
+        left: 0 !important;
+        border-radius: 2px 2px 0 0;
+    }
+
+
+    .bonbon {
+        width: 200px;
+        height: 60px;
+        background: yellow; /* old browsers */
+        background: linear-gradient(to bottom, white, blue);
+        box-shadow: inset 0px 0px 6px #fff,inset 0px -1px 6px #fff;
+        border: 1px solid #5ea617;
+        border-radius: 1em;
+        margin: 1em;
+    }
+
+    .bonbon.rot {
+        background: linear-gradient(to bottom, white , red);
+    }
+
+    .bonbon.orange {
+        background: linear-gradient(to bottom, white, orange);
+    }
+
+    .bonbon:hover,
+    .bonbon:focus {
+        box-shadow:rgba(0,0,0,0.7) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     }
 </style>
