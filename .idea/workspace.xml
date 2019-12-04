@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c34eacc-5a1c-4b69-a758-6c95be558fa7" name="Default Changelist" comment="Google Window Inplementation">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Adrian_Höppener.xml" afterDir="false" />
+    <list default="true" id="7c34eacc-5a1c-4b69-a758-6c95be558fa7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/app.42c2dfd0.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/chunk-vendors.f6d4dddc.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/app.90682ce0.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/chunk-vendors.94c3ced7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Result.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +99,8 @@
       <workItem from="1575222774048" duration="40634000" />
       <workItem from="1575358756326" duration="23566000" />
       <workItem from="1575417803648" duration="1595000" />
-      <workItem from="1575454234204" duration="573000" />
+      <workItem from="1575454234204" duration="943000" />
+      <workItem from="1575466943074" duration="142000" />
     </task>
     <task id="LOCAL-00001" summary="Google Map Change Window Implementation Alphaversion">
       <created>1575133979636</created>
@@ -129,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575419029733</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Google Window Inplementation">
+      <created>1575455112033</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1575455112033</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,10 +149,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1575417749895" />
-    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1575418824119">
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1575455019549">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1575418824119" />
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1575455019549" />
     <state width="746" height="261" key="GridCell.Tab.0.bottom" timestamp="1575333601068">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -212,10 +213,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1575134539864" />
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1575454381403">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1575470753214">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1575454381403" />
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1575470753214" />
     <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575419074700">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
