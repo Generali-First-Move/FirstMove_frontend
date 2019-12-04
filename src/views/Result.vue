@@ -492,6 +492,7 @@
             getImgUrl(pic) {
                 return require("../images/" + pic)
             },
+
             init: function () {
                 var mapOptions = {
                     center: new google.maps.LatLng(46.951081, 7.438637),
@@ -512,11 +513,13 @@
                 // To add the marker to the map, call setMap();
                 marker.setMap(map);
             },
+
             mapRclicked(mouseArgs) {
                 const createdMarker = this.addMarker();
                 createdMarker.position.lat = mouseArgs.latLng.lat();
                 createdMarker.position.lng = mouseArgs.latLng.lng();
             },
+
             addMarker(id, name, lat, lng, color) {
 
                 this.markers.push(
