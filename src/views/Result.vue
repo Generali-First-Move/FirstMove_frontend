@@ -461,7 +461,6 @@
                 };
             },
             getInfoWindow: function (marker) {
-
                 return (
                     `<div class="Info">
                         <div class="Content">
