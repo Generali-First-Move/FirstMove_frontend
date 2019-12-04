@@ -35,6 +35,7 @@
         padding: 2rem 0 2rem;
         margin-top: 1rem;
         width: 100%;
+        position: relative;
     }
     footer img{
         margin: 1.5rem 0;

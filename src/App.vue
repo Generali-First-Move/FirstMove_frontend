@@ -1,11 +1,9 @@
-
-
 <template>
   <div id="app" >
     <header>
         <Firstmove/>
     </header>
-    <body style="padding-top: auto">
+    <body>
         <router-view/>
     </body>
     <footer>
