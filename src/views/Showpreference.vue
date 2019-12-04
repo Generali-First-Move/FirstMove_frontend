@@ -7,213 +7,154 @@
             </h3>
         </div>
 
-        <form>
-            <div class="form-group">
-                <h3>Gute Busanbindung</h3>
-                <div class="vue">
-                <!-- default props -->
-                    <vue-slider ref="slider" v-model="value0" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value0 }}</h4>
-                </div>
-            </div>
-
+        <form @submit="getFullUser()" action="#/result">
             <div class="form-group">
                 <h3>Nähe Bahnhof</h3>
                 <div class="vue">
                     <!-- default props -->
-                    <vue-slider ref="slider" v-model="value1" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value1 }}</h4>
+                    <vue-slider ref="slider" v-model="train" :max="max" :min="min"></vue-slider>
+                    <h4>{{ train }}</h4>
                 </div>
             </div>
-
+            <div class="form-group">
+                <h3>Gute Busanbindung</h3>
+                <div class="vue">
+                    <!-- default props -->
+                    <vue-slider ref="slider" v-model="bus" :max="max" :min="min"></vue-slider>
+                    <h4>{{ bus }}</h4>
+                </div>
+            </div>
+            <div class="form-group">
+                <h3>Nähe zur Uni</h3>
+                <div class="vue">
+                    <!-- default props -->
+                    <vue-slider ref="slider" v-model="uni" :max="max" :min="min"></vue-slider>
+                    <h4>{{ uni }}</h4>
+                </div>
+            </div>
             <div class="form-group">
                 <h3>Einkaufsmöglichkeiten</h3>
                 <div class="vue">
                     <!-- default props -->
-                    <vue-slider ref="slider" v-model="value2" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value2 }}</h4>
+                    <vue-slider ref="slider" v-model="shopping" :max="max" :min="min"></vue-slider>
+                    <h4>{{ shopping }}</h4>
                 </div>
             </div>
-
             <div class="form-group">
-                <h3>Essensmöglichkeiten</h3>
+                <h3>Parknähe</h3>
                 <div class="vue">
                     <!-- default props -->
-                    <vue-slider ref="slider" v-model="value3" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value3 }}</h4>
+                    <vue-slider ref="slider" v-model="park" :max="max" :min="min"></vue-slider>
+                    <h4>{{ park }}</h4>
                 </div>
             </div>
-
-            <div class="form-group">
-                <h3>Ruhe/Atmosphäre</h3>
-                <div class="vue">
-                    <!-- default props -->
-                    <vue-slider ref="slider" v-model="value4" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value4 }}</h4>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <h3>Sicherheit</h3>
-                <div class="vue">
-                    <!-- default props -->
-                    <vue-slider ref="slider" v-model="value5" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value5 }}</h4>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <h3>Uni Nähe</h3>
-                <div class="vue">
-                    <!-- default props -->
-                    <vue-slider ref="slider" v-model="value6" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value6 }}</h4>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <h3>Innenstadt</h3>
-                <div class="vue">
-                    <!-- default props -->
-                    <vue-slider ref="slider" v-model="value7" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value7 }}</h4>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <h3>Freizeit</h3>
-                <div class="vue">
-                    <!-- default props -->
-                    <vue-slider ref="slider" v-model="value8" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value8 }}</h4>
-                </div>
-            </div>
-
             <div class="form-group">
                 <h3>Sportaktivitäten</h3>
                 <div class="vue">
                     <!-- default props -->
-                    <vue-slider ref="slider" v-model="value9" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value9 }}</h4>
+                    <vue-slider ref="slider" v-model="sport" :max="max" :min="min"></vue-slider>
+                    <h4>{{ sport }}</h4>
                 </div>
             </div>
-
             <div class="form-group">
-                <h3>Fitnessstudio</h3>
+                <h3>Schwimmanlagen</h3>
                 <div class="vue">
                     <!-- default props -->
-                    <vue-slider ref="slider" v-model="value10" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value10 }}</h4>
+                    <vue-slider ref="slider" v-model="swim" :max="max" :min="min"></vue-slider>
+                    <h4>{{ swim }}</h4>
                 </div>
             </div>
-
             <div class="form-group">
-                <h3>Schwimmbäder</h3>
+                <h3>Innenstadt</h3>
                 <div class="vue">
                     <!-- default props -->
-                    <vue-slider ref="slider" v-model="value11" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value11 }}</h4>
+                    <vue-slider ref="slider" v-model="center" :max="max" :min="min"></vue-slider>
+                    <h4>{{ center }}</h4>
                 </div>
             </div>
-
-            <div class="form-group">
-                <h3>Kletterhalle</h3>
-                <div class="vue">
-                    <!-- default props -->
-                    <vue-slider ref="slider" v-model="value12" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value12 }}</h4>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <h3>Fußball</h3>
-                <div class="vue">
-                    <!-- default props -->
-                    <vue-slider ref="slider" v-model="value13" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value14}}</h4>
-                </div>
-            </div>
-
             <div class="form-group">
                 <h3>Nightlife</h3>
                 <div class="vue">
                     <!-- default props -->
-                    <vue-slider ref="slider" v-model="value14" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value15 }}</h4>
+                    <vue-slider ref="slider" v-model="night" :max="max" :min="min"></vue-slider>
+                    <h4>{{ night }}</h4>
                 </div>
             </div>
-
             <div class="form-group">
-                <h3>Park</h3>
+                <h3>Sicherheit</h3>
                 <div class="vue">
                     <!-- default props -->
-                    <vue-slider ref="slider" v-model="value15" :max="max" :min="min"></vue-slider>
-                    <h4>{{ value16 }}</h4>
+                    <vue-slider ref="slider" v-model="safety" :max="max" :min="min"></vue-slider>
+                    <h4>{{ safety }}</h4>
                 </div>
             </div>
-
         <div>
-            <router-link to="/result" class="nav-link"><button type="button" name="action" class="btn btn-secondary btn-lg">Abschicken</button></router-link>
+            <!--<router-link to="/result" class="nav-link"><button type="submit" name="action" class="btn btn-secondary btn-lg">Abschicken</button></router-link>-->
+            <button @click="getFullUser" type="submit" class="btn btn-outline-dark btn-lg">Abschicken</button>
         </div>
         </form>
 
     </div>
 </template>
-
-
-
-<script>
+<script language="JavaScript">
 
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/antd.css'
     import axios from 'axios'
 
 
-    export default
-    {
+    export default {
         components: {VueSlider},
 
-        data ()
-        {
-            return{
+        data(){
+            return {
 
                 city: "",
-                min:1,
-                max:10,
-
-                    value0: 1,
-                    value1: 1,
-                    value2: 1,
-                    value3: 1,
-                    value4: 1,
-                    value5: 1,
-                    value6: 1,
-                    value7: 1,
-                    value8: 1,
-                    value9: 1,
-                    value10: 1,
-                    value11: 1,
-                    value12: 1,
-                    value13: 1,
-                    value14: 1,
-                    value15: 1,
-
+                min: 1,
+                max: 10,
+                train: 1,
+                bus: 1,
+                uni: 1,
+                shopping: 1,
+                park: 1,
+                sport: 1,
+                swim: 1,
+                center: 1,
+                night: 1,
+                safety: 1,
+            }
+        },
+        methods: {
+            getFullUser: function(){
+                axios
+                    .post('api/user/pref', {
+                        city: this.city,
+                        dist_train_station: this.train,
+                        dist_bus_station: this.bus,
+                        dist_uni: this.uni,
+                        dist_shopping: this.shopping,
+                        dist_park: this.park,
+                        dist_sport: this.sport,
+                        dist_swimming: this.swim,
+                        dist_center: this.center,
+                        dist_nightlife: this.night,
+                        dist_safety: this.safety
+                    })
+                    .then(function () {
+                        alert("Added all prefs");
+                    })
+                    .catch(e => alert(e));
             }
         },
         mounted() {
             axios
                 .get('api/user')
-                .then(response =>{
+                .then(response => {
                     this.city = response.data;
                 })
                 .catch(e => alert(e));
-        }
-
+        },
     }
-
-
-
-
 </script>
 
 <style>

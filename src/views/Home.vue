@@ -15,19 +15,17 @@
 
         <div class="text-center cityinput offset" id="cityinput">
             <h2>Wohin ziehst du?</h2>
-            <form @submit="getCity()">
+            <form @submit="postCity()" action="#/show-preference">
                 <label for="searchcity"></label>
                 <input type="text" placeholder="Stadt/PLZ" name="search" v-model="city" id ="searchcity" size="40">
                 <br>
-                <router-link to="/show-preference" type="submit" class="btn btn-outline-dark btn-lg">Weiter</router-link>
+                <!--<router-link to="/show-preference" type="submit" class="btn btn-outline-dark btn-lg">Weiter</router-link>-->
+                <button @click="postCity" type="submit" class="btn btn-outline-dark btn-lg">Weiter</button>
             </form>
+
         </div>
    </div>
 </template>
-
-
-
-
 <script>
     import axios from 'axios'
 
@@ -39,7 +37,7 @@
         },
 
         methods: {
-            getCity() {
+            postCity: function() {
                 axios
                     .post('/api/user', {
                         city: this.city,
@@ -47,17 +45,13 @@
                     .then(function () {
                         alert("Stadt wurde dem Benutzer erfolgreich hinzugefügt!");
                     })
-                    .catch(e => alert(e));
+                    .catch(e => console.log(e));
             }
         }
     }
 </script>
-
-
 <style>
-
-
-    .caption{
+    .caption {
         width: 100%;
         top: 38%;
         z-index: 1;
@@ -66,9 +60,7 @@
         background-size: cover;
         margin-bottom: 100px;
         position: absolute;
-
     }
-
     .caption h1{
         font-size: 3.8rem;
         font-weight: 700;
