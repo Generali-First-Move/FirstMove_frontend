@@ -3,7 +3,7 @@
     <header>
         <Firstmove/>
     </header>
-    <body style="padding-top: auto">
+    <body>
         <router-view/>
     </body>
     <footer>

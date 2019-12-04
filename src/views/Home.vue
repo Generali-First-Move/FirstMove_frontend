@@ -59,7 +59,7 @@
 
     .caption{
         width: 100%;
-        top: 38%;
+        top: 20%;
         z-index: 1;
         color: #ffffff;
         text-transform: uppercase;
