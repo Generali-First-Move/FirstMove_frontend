@@ -16,11 +16,11 @@
 
         <div class="form-group google">
 
-            <div class="map-container">
                 <GmapMap :center="center" @center_changed="updateCenter" :zoom="zoom" @zome_changed="updateZoom"
                          ref="map">
 
                     <gmap-info-window
+                            ref="winInfo"
                             :options="infoOptions"
                             :position=" infoPosition"
                             :opened="infoWinOpen"
@@ -65,6 +65,7 @@
 
                     </gmap-info-window>
                     <GmapMarker
+                            ref="markerRef"
                             :key="index"
                             v-for="(item, index) in markers"
                             :id="item.id"
@@ -76,26 +77,23 @@
                             :clickable="true"
                             @drag="updateCoordinates(item.position)" ,
                             @click="toogle(item,id)"
-
                     />
-                    <GmapCircle
-                            v-for="(pin, index) in markers"
-                            :key="index"
-                            :id="pin.id"
-                            :center="pin.position"
-                            :radius="pin.radius"
-                            :visible="true"
-                            :options="{fillColor:pin.fillColor,fillOpacity:pin.fillOpacity}">
 
+                    <GmapCircle
+                            ref="circleRef"
+                            v-for="(pin, index) in markers"
+                            :map="map"
+                            :key="index"
+                            :center="pin.position"
+                            :radius="50.0"
+                            :draggable="true"
+                            :visible="true"
+                            :options="{fillColor:pin.fillColor,fillOpacity:0.2}"
+                    >
                     </GmapCircle>
 
 
                 </GmapMap>
-
-
-            </div>
-
-
         </div>
         <!--
          <div class="vue-map-container">
@@ -276,7 +274,7 @@
             return {
                 map: null,
                 mapLoaded: false,
-                center: { lat: 50.7753455, lng: 6.0838868},
+                center: {lat: 50.7753455, lng: 6.0838868},
                 zoom: 17,
                 gestureHandling: 'none',
                 zoomControl: true,
@@ -292,7 +290,7 @@
                 currentMidx: null,
                 currentId: null,
                 Name: '',
-                imgfile: '',
+                imgfile: ' ',
                 infoOptions: {
                     pixelOffset: {
                         width: 0,
@@ -301,7 +299,7 @@
                 },
                 markers: [
                     {
-                        Id: "1",
+                        Id: 1,
                         name: "City1",
                         content: "Der Aachener Dom, auch Hoher Dom zu Aachen, Aachener Münster oder Aachener Marienkirche, ist die Bischofskirche des Bistums Aachen und das bedeutendste Wahrzeichen der Stadt Aachen",
 
@@ -312,7 +310,7 @@
                             "Erradeln Sie Aachen und sein Umland auf vielen schönen Nebenstraßen - z.B. nach den folgenden Routenvorschlägen ",
                         position: {
                             lat: 50.7753455,
-                            lng: 6.0838868,
+                            lng: 6.0838868
                         },
 
                         icon: {
@@ -321,13 +319,13 @@
                             labelOrigin: {x: 16, y: -10}
                         },
                         img: require("../images/aachendom.jpeg"),
-                        radius: 55,
+                        radius: 100,
                         fillOpacity: "0.7",
                         fillColor: "#00FF00"
                     },
 
                     {
-                        Id: "2",
+                        Id: 2,
                         name: "City2",
                         content: "Das ist Content von Marker 2",
                         position: {
@@ -347,7 +345,7 @@
 
 
                     {
-                        Id: "3",
+                        Id: 3,
                         name: "City3",
                         content: 'Das ist Content von Marker 3',
                         position: {
@@ -370,7 +368,7 @@
 
                 circle: [
                     {
-                        id: "1",
+                        id: 1,
                         position: {
                             lat: 50.7753455,
                             lng: 6.0838868,
@@ -381,7 +379,7 @@
                         fillColor: "#00FF00"
                     },
                     {
-                        id: "2",
+                        id: 2,
                         position: {
                             lat: 50.774720, lng: 6.083920
                         },
@@ -390,7 +388,7 @@
                         fillColor: "#56FF44",
                     },
                     {
-                        id: "3",
+                        id: 3,
                         position: {
                             lat: 50.776026, lng: 6.089590
                         },
@@ -415,8 +413,21 @@
 
             }
         },
+        mounted: function() {
+            this.$refs.circleRef.$circlePromise.then(() => {
+                const {$circleObject} = this.$refs.circleRef; //get google.maps.Circle object
+                const map = $circleObject.getMap(); //get map instance 
+                map.fitBounds($circleObject.getBounds());
+            })
+        },
         methods: {
 
+            centerChanged(e) {
+                console.log(e)
+            },
+            radiusChanged(radius) {
+                console.log(radius)
+            },
 
             updateCoordinates(location) {
                 this.coordinates = {
@@ -452,8 +463,7 @@
                 this.googledefault();
             },
 
-            googledefault()
-            {
+            googledefault() {
                 this.center = {
                     lat: 50.7753455,
                     lng: 6.0838868
@@ -942,11 +952,11 @@ export default {
         border-radius: 0 !important;
     }
 
-.Content
-{
-    position: relative;
-    padding-top: 20px;
-}
+    .Content {
+        position: relative;
+        padding-top: 20px;
+    }
+
     .gm-style-iw {
         width: auto !important;
         top: 0 !important;
@@ -960,14 +970,14 @@ export default {
         height: 60px;
         background: yellow; /* old browsers */
         background: linear-gradient(to bottom, white, blue);
-        box-shadow: inset 0px 0px 6px #fff,inset 0px -1px 6px #fff;
+        box-shadow: inset 0px 0px 6px #fff, inset 0px -1px 6px #fff;
         border: 1px solid #5ea617;
         border-radius: 1em;
         margin: 1em;
     }
 
     .bonbon.rot {
-        background: linear-gradient(to bottom, white , red);
+        background: linear-gradient(to bottom, white, red);
     }
 
     .bonbon.orange {
@@ -976,6 +986,6 @@ export default {
 
     .bonbon:hover,
     .bonbon:focus {
-        box-shadow:rgba(0,0,0,0.7) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
 </style>
