@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-free/sprites/solid.svg'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
 import * as VueGoogleMaps from "vue2-google-maps";
@@ -27,8 +28,6 @@ new Vue({
 }).$mount('#app');
 
 Vue.use(Slider);
-
-
 //Sidebar
 import Vuesax from 'vuesax'
 
@@ -36,4 +35,5 @@ import 'vuesax/dist/vuesax.css' //Vuesax styles
 Vue.use(Vuesax, {
   // options here
 });
+
 

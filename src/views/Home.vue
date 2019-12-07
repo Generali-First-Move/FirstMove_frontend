@@ -6,23 +6,20 @@
                </div>
            </div>
        </div>
-       <b-nav class="caption text-center"  v-b-scrollspy:nav-scroller>
+       <div class="caption text-center">
            <h1>Willkommen bei First Move</h1>
            <h3>Suche deine optimale Wohngegend</h3>
-           <a href="#cityinput" @onclick="scrollIntobutton" class="btn btn-outline-light btn-lg">Los Geht's</a>
-       </b-nav>
+           <router-link to="#cityinput" class="btn btn-outline-light btn-lg">Los Geht's</router-link>
+       </div>
        <br>
 
-        <div class="text-center cityinput offset caption" id="cityinput" ref="content" style="position:relative; color:black; height:300px; overflow-y:scroll;">
+        <div class="text-center cityinput offset" id="cityinput">
             <h2>Wohin ziehst du?</h2>
             <form @submit="getCity()">
-                <div class="col-14">
                 <label for="searchcity"></label>
-                <input type="text" placeholder=" Stadt/PLZ" name="search" v-model="city" id ="searchcity" size="40">
-                </div>
-                <div class="col-14">
-                <router-link to="/show-preference" type="submit" class="btn btn-outline-light btn-lg" style="color: black">Weiter</router-link>
-                </div>
+                <input type="text" placeholder="Stadt/PLZ" name="search" v-model="city" id ="searchcity" size="40">
+                <br>
+                <router-link to="/show-preference" type="submit" class="btn btn-outline-dark btn-lg">Weiter</router-link>
             </form>
         </div>
    </div>
@@ -51,14 +48,6 @@
                         alert("Stadt wurde dem Benutzer erfolgreich hinzugefügt!");
                     })
                     .catch(e => alert(e));
-            },
-            scrollIntobutton(evt) {
-                evt.preventDefault()
-                const href = evt.target.getAttribute('href')
-                const el = href ? document.querySelector(href) : null
-                if (el) {
-                    this.$refs.content.scrollTop = el.offsetTop
-                }
             }
         }
     }
@@ -81,19 +70,15 @@
     }
 
     .caption h1{
-        font-size: 3.8vw;
+        font-size: 3.8rem;
         font-weight: 700;
         letter-spacing: .3rem;
         text-shadow: .1rem .1rem .8rem black;
         padding-bottom: .1rem;
     }
 
-    .caption h2 {
-        font-size: 2vw;
-    }
-
     .caption h3{
-        font-size: 2vw;
+        font-size: 2rem;
         text-shadow: .1rem .1rem .5rem black;
         padding-bottom: 1.6rem;
     }
@@ -108,8 +93,6 @@
     .cityinput{
         background: white;
         width: 100%;
-        position: relative;
-        height:300px; overflow-y:scroll;
     }
 
 
@@ -158,8 +141,7 @@
        width: 100%;
        height: 100%;
        background-size: cover;
-       background-position: 25% 25%;
-       background-repeat: no-repeat;
+       background-position: center center;
        -webkit-transform: translateZ(0);
        transform: translateZ(0);
        will-change: transform;
@@ -196,10 +178,6 @@
        will-change: transform;
    }
 
-#searchcity{
-    border-radius: 6px;
-    height: 50px;
-    border-color: #80081e;
-}
+
 
 </style>
