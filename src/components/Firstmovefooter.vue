@@ -1,8 +1,8 @@
 <template>
     <div id="footer">
-        <footer>
+
             <div class="row justify-content-center">
-                    <div class="col-md-5 text-center">
+                    <div class="text-center">
                         <strong>Dieses Portal ist in Zusammenarbeit mit der Generali Deutschland Informatik Services GmbH entstanden </strong>
                         <br>
                         <a href="https://www.generali.de/ueber-generali/ueber-uns/"><img src="@/assets/generali.png" alt="Bild" width="90" height="70"/></a>
@@ -15,9 +15,8 @@
                         <a href="https://www.instagram.com/generaliinformatik/?hl=de" target="_blank"><i class="fab fa-instagram"></i> </a>
                     </div>
                 <hr class="socket">
-                <p>&copy; First Move Theme</p>
+                <p style="color: white">&copy; First Move Theme</p>
             </div>
-        </footer>
     </div>
 
 </template>
@@ -60,10 +59,14 @@
         margin-top: 3rem;
     }
 
+
     footer p{
         position: relative;
         top: 25px;
         left: 8px;
+    }
+    .justify-content-center{
+       margin-bottom: 0px;
     }
 
 </style>

@@ -1,9 +1,13 @@
 <template>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <vs-row>
-            <vs-col class="col-10">
-                <div class="collapse navbar-collapse" id="navbarResponsive" >
-                 <vs-button @click="active=!active" color="dark" class="btn btn-secondary btn-lg" id="button" data-target="#navbarResponsive">Menu</vs-button>
+        <!--<div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">-->
+
+                <div id="navbarResponsive">
+
+                 <vs-button @click="active=!active" color="danger" id="fixednavbutton" data-target="#navbarResponsive" type="filled">Menu</vs-button>
+                    <a class="navbar-brand" href="/"><img src="@/assets/logo_transparent_white.png" width="110" height="100" alt="logo"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                  <vs-sidebar parent="body" default-index="1" color="dark" class="sidebarx" spacer v-model="active">
 
                      <div class="header-sidebar" slot="header">
@@ -20,7 +24,7 @@
                          </li>
                          <vs-divider position="left"></vs-divider>
                          <li class="nav-item">
-                             <router-link to="/result" class="nav-link active"><i class="fas fa-user-friends"></i> Kontakt</router-link>
+                             <router-link to="/contact" class="nav-link active"><i class="fas fa-user-friends"></i> Kontakt</router-link>
                          </li>
                          <vs-divider position="left"></vs-divider>
                          <li class="nav-item">
@@ -31,20 +35,20 @@
                          <button @click="active=!active" color="dark" class="btn btn-outline-danger" data-target="#navbarResponsive" id="bu"><i id="logo" class="fas fa-arrow-left"></i></button>
                      </div>
                  </vs-sidebar>
-             </div>
-        </vs-col>
 
-        <vs-col class="col-2">
-        <a class="navbar-brand" href="/"><img src="@/assets/logo_transparent.png" width="100" height="90" alt="logo"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </vs-col>
-    </vs-row>
-        </nav>
+             </div>
+
+               <!-- <vs-col class="col-1">
+                    <a class="navbar-brand" href="/"><img src="@/assets/logo_transparent_white.png" width="100" height="90" alt="logo"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </vs-col>-->
+
 </template>
 
 <script>
+
     export default {
         name: "Firstmove",
         data:()=>({
@@ -58,10 +62,9 @@
 
 
 
-<style >
+<style lang="stylus">
+
     /* Sidebar style*/
-
-
 
   .header-sidebar{
     display: flex;
@@ -110,9 +113,13 @@
     }
 
             .navbar-brand img{
-                height: 100%;
+                right: 10px;
+                margin-top: 0%;
                 background-color: rgba(111, 111, 111, 0.5) !important;
                 border-radius: 15px;
+                z-index: +100;
+                position: fixed;
+
             }
 
             .navbar-nav{
@@ -133,13 +140,22 @@
         color: black;
     }
 
-            #button{
-                border-color: black;
-
-            }
     .nav-link
     {
         color: #80081e;
     }
 
+    #fixednavbutton{
+        position: fixed;
+        z-index: +100;
+        border-width: medium;
+
+        padding: .6rem 1.3rem;
+        font-size: 1.1rem;
+        background-color: rgba(111, 111, 111, 0.5) !important;
+        border-radius: 15px;
+        color: white;
+        margin-left: 10px;
+        margin-top: 25px;
+    }
 </style>

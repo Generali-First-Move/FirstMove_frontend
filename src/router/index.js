@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Showpreference from '@/views/Showpreference.vue'
 import Result from '@/views/Result'
 import Home from '@/views/Home'
-
+import Contact from '@/views/Contact'
 
 
 Vue.use(VueRouter)
@@ -20,6 +20,10 @@ const routes = [
     {
         path: '/show-preference',
         component: Showpreference
+    },
+    {
+      path: '/contact',
+        component: Contact
     },
 
 ]

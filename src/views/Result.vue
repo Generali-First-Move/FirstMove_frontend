@@ -617,7 +617,7 @@ export default {
 
     #result h1 {
         text-align: left;
-        font-size: 2.5rem;
+        font-size: 2.5vw;
         color: black;
         font-variant-caps: inherit;
     }
