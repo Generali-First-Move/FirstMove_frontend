@@ -13,225 +13,13 @@
                 </form>
             </div>
         </div>
-
-        <div class="form-group google">
-
-                <GmapMap :center="center" @center_changed="updateCenter" :zoom="zoom" @zome_changed="updateZoom"
-                         ref="map">
-
-                    <gmap-info-window
-                            ref="winInfo"
-                            :options="infoOptions"
-                            :position=" infoPosition"
-                            :opened="infoWinOpen"
-                            @closeclick="infoWinOpen=false">
-
-                        <div class="InfoWindowframe">
-                            <section class="section pb-5">
-
-                                <!--Section heading-->
-                                <h2 class="section-heading h1 pt-4">Willkommen zum Stadtteil: </h2>
-
-                                <div class="Infobox">
-                                    <!--Grid column-->
-                                    <div class="col-lg-9 mb-4">
-
-                                        <!--Form with header-->
-                                        <div class="card">
-                                            <div class="form-header blue accent-1">
-                                                <h3><i class="fas fa-map-marker-alt"></i> {{Name}}</h3>
-                                            </div>
-
-                                            <div class="card-body">
-                                                <div class="pic">
-                                                    <img id="backgroundimage" :src="imgfile" border="0" alt="">
-                                                </div>
-                                                <br>
-                                                <br>
-                                                <div class="description">
-                                                    <div class="html" v-html="infoContent"></div>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <!--Grid column-->
-                                    </div>
-                                </div>
-
-                            </section>
-                        </div>
-                        <button class="bonbon" @click="closeInfoWindow()">Close</button>
-
-                    </gmap-info-window>
-                    <GmapMarker
-                            ref="markerRef"
-                            :key="index"
-                            v-for="(item, index) in markers"
-                            :id="item.id"
-                            :zoom=item.zoom
-                            :position="item.position"
-                            :draggable="true"
-                            :label="item.label"
-                            :icon="item.icon"
-                            :clickable="true"
-                            @drag="updateCoordinates(item.position)" ,
-                            @click="toogle(item,id)"
-                    />
-
-                    <GmapCircle
-                            ref="circleRef"
-                            v-for="(pin, index) in markers"
-                            :map="map"
-                            :key="index"
-                            :center="pin.position"
-                            :radius="50.0"
-                            :draggable="true"
-                            :visible="true"
-                            :options="{fillColor:pin.fillColor,fillOpacity:0.2}"
-                    >
-                    </GmapCircle>
-
-
-                </GmapMap>
+        <div class="form-group google" id="app">
+            <div v-show="!isLoading">
+                <google ref="mapRef" :gmarkers="gmarkers" :center="center" :radius="radius" :zoom="zoom"/>
+            </div>
         </div>
-        <!--
-         <div class="vue-map-container">
-         <GmapMap :center="center" :zoom="zoom" :map-type-id="mapTypeId" ref="google-maps">
-             <GmapMarker
-                     v-for="(item, index) in markers"
-                     :key="index"
-                     :position="item.position"
-                     :clickable="true"
-                     :icon="markerOptions"
-                     @click="center = item.position"
-
-             />
-             <GmapCircle
-                     v-for="(pin, index) in markers"
-                     :key="index"
-                     :center="pin.position"
-                     :radius="10"
-                     :visible="true"
-                     :options="{fillColor:'red',fillOpacity:0.8}"
-             ></GmapCircle>
-         </GmapMap>
-
-         </div>
-             -->
-        <!--
-                        <div class="vue-map-container">
-                        <GmapMap :center="center" :map-type-id="mapTypeId" :zoom="16">
-                            <GmapMarker
-                                    v-for="(item, index) in markers"
-                                    :key="index"
-                                    :position="item.position"
-                                    @click="center = item.position"
-                            />
-                        </GmapMap>
-                        </div>
-            -->
-        <!--
-            <div class="google-map" ref="googleMap"></div>
-             <template v-if="Boolean(this.google) && Boolean(this.map)">
-                      <slot
-                                 :google="google"
-                                 :map="map"
-                         />
-                     </template>
-                     -->
-        <!--
-                    <div class="google-maps">
-                        <iframe id="map"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10094.445629951531!2d6.084487735032457!3d50.76423872231622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c09be02b9ad17f%3A0x262760fd637fdee1!2s52066%20Burtscheid!5e0!3m2!1sde!2sde!4v1573582989242!5m2!1sde!2sde" width="780" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                    </div>
-         -->
         <div class="col-md-3">
-            <fieldset>
-                <details>
-                    <summary id="City1"> Stadt Bereich 1:</summary>
-                    <div id="box_green">
-                        <h3 class="Pro">Pro:</h3>
-                        <table style="width:100%">
-                            <tr>
-                                <th><i class="fas fa-check"/></th>
-                                <th>Gute Busanbindung</th>
-                            </tr>
-                            <tr>
-                                <th><i class="fas fa-check-square"/></th>
-                                <th>Nähe Bahnhof</th>
-                            </tr>
-                        </table>
 
-                        <br>
-                        <h3 class="Contra">Contra:</h3>
-                        <table>
-                            <tr>
-                                <th><i class="fas fa-times-circle"/></th>
-                                <th> Innenstadt</th>
-                            </tr>
-                        </table>
-
-                        <br>
-                    </div>
-                </details>
-
-                <details>
-                    <summary id="City2"> Stadt Bereich 2:</summary>
-                    <div id="box_orange">
-                        <h3 class="Pro">Pro:</h3>
-                        <table style="width:100%">
-                            <tr>
-                                <th><i class="fas fa-check"/></th>
-                                <th>Gute Busanbindung</th>
-                            </tr>
-                            <tr>
-                                <th><i class="fas fa-check-square"/></th>
-                                <th>Nähe Bahnhof</th>
-                            </tr>
-                        </table>
-
-                        <br>
-                        <h3 class="Contra">Contra:</h3>
-                        <table>
-                            <tr>
-                                <th><i class="fas fa-times-circle"/></th>
-                                <th> Innenstadt</th>
-                            </tr>
-                        </table>
-
-                        <br>
-                    </div>
-                </details>
-
-                <details>
-                    <summary id="City3"> Stadt Bereich 3:</summary>
-                    <div id="box_red">
-                        <h3 class="Pro">Pro:</h3>
-                        <table style="width:100%">
-                            <tr>
-                                <th><i class="fas fa-check"/></th>
-                                <th>Gute Busanbindung</th>
-                            </tr>
-                            <tr>
-                                <th><i class="fas fa-check-square"/></th>
-                                <th>Nähe Bahnhof</th>
-                            </tr>
-                        </table>
-
-                        <br>
-                        <h3 class="Contra">Contra:</h3>
-                        <table>
-                            <tr>
-                                <th><i class="fas fa-times-circle"/></th>
-                                <th> Innenstadt</th>
-                            </tr>
-                        </table>
-
-                        <br>
-                    </div>
-                </details>
-
-            </fieldset>
         </div>
     </div>
 </template>
@@ -241,344 +29,6 @@
 * The key parameter will contain your own API key (which is not needed for this tutorial)
 * The callback parameter executes the initMap() function
 -->
-<script>
-    /*
-    let map;
-    let markersArray=[];
-
-
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 50.775346, lng: 6.083887},
-            zoom: 25
-        });
-    }
-
-    function addMarker (latLng , color)
-    {
-        let url = "http://maps.google.com/mapfiles/ms/icons/";
-        url += color + "-dot.png";
-        let marker = new google.maps.Marker ({
-            map:map,
-            position:latLng,
-            icon:{
-                url:url
-            }
-        });
-        markersArray.push(marker);
-    }*/
-
-    export default {
-        props: ["marker"],
-        data() {
-            return {
-                map: null,
-                mapLoaded: false,
-                center: {lat: 50.7753455, lng: 6.0838868},
-                zoom: 17,
-                gestureHandling: 'none',
-                zoomControl: true,
-                mapTypeId: "terrain",
-                picture: null,
-                infoPosition: {
-                    lat: 0,
-                    lng: 0
-                },
-                infoContent: '',
-                infoWinOpen: false,
-                infoCurrentKey: null,
-                currentMidx: null,
-                currentId: null,
-                Name: '',
-                imgfile: ' ',
-                infoOptions: {
-                    pixelOffset: {
-                        width: 0,
-                        height: -35
-                    }
-                },
-                markers: [
-                    {
-                        Id: 1,
-                        name: "City1",
-                        content: "Der Aachener Dom, auch Hoher Dom zu Aachen, Aachener Münster oder Aachener Marienkirche, ist die Bischofskirche des Bistums Aachen und das bedeutendste Wahrzeichen der Stadt Aachen",
-
-                        content1: "Hier steht ein Text zu  Angeboten und Informationslinks",
-
-                        content2: "Radwandern\n" +
-                            "\n" +
-                            "Erradeln Sie Aachen und sein Umland auf vielen schönen Nebenstraßen - z.B. nach den folgenden Routenvorschlägen ",
-                        position: {
-                            lat: 50.7753455,
-                            lng: 6.0838868
-                        },
-
-                        icon: {
-                            url: "https://i.ibb.co/Gtx9pyv/home.png",
-                            scaledSize: {width: 48, height: 55},
-                            labelOrigin: {x: 16, y: -10}
-                        },
-                        img: require("../images/aachendom.jpeg"),
-                        radius: 100,
-                        fillOpacity: "0.7",
-                        fillColor: "#00FF00"
-                    },
-
-                    {
-                        Id: 2,
-                        name: "City2",
-                        content: "Das ist Content von Marker 2",
-                        position: {
-                            lat: 50.774720, lng: 6.085920
-                        },
-                        icon:
-                            {
-                                url: "https://i.ibb.co/chfqBTq/home-location-marker-2.png",
-                                scaledSize: {width: 50, height: 48},
-                                labelOrigin: {x: 16, y: -10}
-                            },
-                        img: require("../images/aachenjva.jpeg"),
-                        radius: 50,
-                        fillOpacity: "0.6",
-                        fillColor: "#40ff00",
-                    },
-
-
-                    {
-                        Id: 3,
-                        name: "City3",
-                        content: 'Das ist Content von Marker 3',
-                        position: {
-                            lat: 50.776026, lng: 6.089590
-                        },
-                        icon:
-                            {
-                                url: "https://i.ibb.co/chfqBTq/home-location-marker-2.png",
-                                scaledSize: {width: 50, height: 48},
-                                labelOrigin: {x: 16, y: -10}
-                            },
-                        img: require("../images/aachenstadt.jpeg"),
-                        radius: 45,
-                        fillOpacity: "0.7",
-                        fillColor: "#ccff33",
-
-                    },
-
-                ],
-
-                circle: [
-                    {
-                        id: 1,
-                        position: {
-                            lat: 50.7753455,
-                            lng: 6.0838868,
-                        },
-                        radius: 35,
-
-                        fillOpacity: "0.6",
-                        fillColor: "#00FF00"
-                    },
-                    {
-                        id: 2,
-                        position: {
-                            lat: 50.774720, lng: 6.083920
-                        },
-                        radius: 26,
-                        fillOpacity: "0.6",
-                        fillColor: "#56FF44",
-                    },
-                    {
-                        id: 3,
-                        position: {
-                            lat: 50.776026, lng: 6.089590
-                        },
-                        radius: 26,
-                        fillOpacity: "0.6",
-                        fillColor: "#E2FF00",
-                    }
-
-                ]
-                /*
-                markers: [
-                    { Id: 1, name: "Oslo", position: {lat: 50.7753455, lng: 6.0838868 },},
-                    { Id: 2, name: "Stockholm", position: { lat: 50.774720, lng: 6.083920} },
-                    { Id: 3,  name: "Copenhagen", position: { lat: 50.776026, lng: 6.089590 }},
-                    { Id: 4, name: "Berlin", position: { lat: 50.775026, lng: 6.0855908 } },
-                    { Id: 5, name: "Paris", position: { lat: 50.772026, lng: 6.088590 } },
-
-                ],
-                */
-
-                // draw Markers
-
-            }
-        },
-        mounted: function() {
-            this.$refs.circleRef.$circlePromise.then(() => {
-                const {$circleObject} = this.$refs.circleRef; //get google.maps.Circle object
-                const map = $circleObject.getMap(); //get map instance 
-                map.fitBounds($circleObject.getBounds());
-            })
-        },
-        methods: {
-
-            centerChanged(e) {
-                console.log(e)
-            },
-            radiusChanged(radius) {
-                console.log(radius)
-            },
-
-            updateCoordinates(location) {
-                this.coordinates = {
-                    lat: location.latLng.lat(),
-                    lng: location.latLng.lng(),
-                }
-            },
-
-            //set after merker end drag
-            gMapFunc(evnt) {
-                this.jdata = {"geo": {"lat": evnt.lat(), "lng": evnt.lng()}};
-            },
-
-
-            toogle: function (marker, idx) {
-                this.infoPosition = marker.position;
-                this.infoContent = this.getInfoWindow(marker);
-                this.Name = marker.name;
-                this.imgfile = marker.img;
-                //check if its the same marker that was selected if yes toggle
-                if (this.currentMidx == idx) {
-                    this.infoWinOpen = !this.infoWinOpen;
-                }
-                //if different marker set infowindow to open and reset current marker index
-                else {
-                    this.infoWinOpen = true;
-                    this.currentMidx = idx;
-                }
-            },
-
-            closeInfoWindow() {
-                this.infoWinOpen = false;
-                this.googledefault();
-            },
-
-            googledefault() {
-                this.center = {
-                    lat: 50.7753455,
-                    lng: 6.0838868
-
-                };
-            },
-            getInfoWindow: function (marker) {
-                return (
-                    `<div class="Info">
-                        <div class="Content">
-                            <table style="width:100%">
-                                <tr style="position: relative;bottom: 10px;">
-                                <th style="font color=#0000FF">Wichtige Informationen: </th>
-                                <td>${marker.content}</td>
-                                </tr>
-
-                                <tr style="position: relative;bottom: 5px;">
-                                <th style="color=#FF0000" >Freizeit:</th>
-                                <td>${marker.content2}
-                                <a href="www.google.de" >Informationsangebot 1</a>
-                                </td>
-                                </tr>
-
-                                <tr style="position: relative;top: 5px;"">
-                                <th style="color=#FF0000" >Andere wichtige Informationen:</th>
-                                <td>${marker.content1}
-                                <a href="www.google.de" >wichtige Information </a>
-                                </td>
-                                </tr>
-                            </table>
-                        </div>
-                </div>`
-                )
-            },
-
-            getImgUrl(pic) {
-                return require("../images/" + pic)
-            },
-
-            init: function () {
-                var mapOptions = {
-                    center: new google.maps.LatLng(46.951081, 7.438637),
-                    zoom: 13,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-
-                var marker = new google.maps.Marker({
-                    icon: {
-                        url: 'http://mt.google.com/vt/icon?psize=27&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=50&text=•&scale=1'
-                    },
-                    position: new google.maps.LatLng(46.951081, 7.438637),
-                    title: "My Custom Marker",
-                    animation: google.maps.Animation.DROP
-                });
-
-                // To add the marker to the map, call setMap();
-                marker.setMap(map);
-            },
-
-            mapRclicked(mouseArgs) {
-                const createdMarker = this.addMarker();
-                createdMarker.position.lat = mouseArgs.latLng.lat();
-                createdMarker.position.lng = mouseArgs.latLng.lng();
-            },
-
-            addMarker(id, name, lat, lng, color) {
-
-                this.markers.push(
-                    {
-                        id: "id",
-                        name: "name",
-                        position: {
-                            lat: lat, lng: lng
-                        },
-                        opacity: 1,
-                        draggable: true,
-                        enabled: true,
-                        clicked: 0,
-                        rightClicked: 0,
-                        color: color,
-                        icon: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
-
-                    });
-                return this.markers;
-            },
-            updateCircle(prop, value) {
-                if (prop === 'radius') {
-                    this.radius = value;
-                } else if (prop === 'bounds') {
-                    this.circleBounds = value;
-                }
-            }
-            ,
-            updatePlace(place) {
-                if (place && place.geometry && place.geometry.location) {
-                    var marker = this.addMarker();
-                    marker.position.lat = place.geometry.location.lat();
-                    marker.position.lng = place.geometry.location.lng();
-                }
-            }
-            ,
-
-            updateCenter(center) {
-                this.center = {
-                    lat: center.lat(),
-                    lng: center.lng()
-                };
-            },
-            updateZoom(zoom) {
-                this.zoom = zoom;
-            },
-        },
-    };
-</script>
 
 
 <!--
@@ -619,7 +69,120 @@ export default {
 
 </script>
 -->
+<script>
+    //import * as VueGoogleMaps from 'vue2-google-maps';
+    //var lat = document.getElementById("lat"); //this will select the input with  id = lat
+    //var lng = document.getElementById("lng"); // this will select the input with id = lng
 
+    //import axios from 'axios'
+    import GoogleMap from '../components/GoogleMap.vue'
+
+    export default {
+        "name":"GoogleMap",
+        data: function () {
+
+            return {
+                id: '',
+                name: '',
+                zoom: 17,
+                center: {lat: 50.7753455, lng: 6.0838868} ,
+                map: undefined,
+                prop:'',
+                gmarkers:[],
+                radius:0,
+                isLoading: false,
+            }
+        },
+        computed:{
+
+
+        },
+        components: {
+            'google': GoogleMap
+
+        },
+
+        methods:
+            {
+
+                init() {
+                    console.log("marker setzen");
+                    this.addMarker(50.7753455, 6.0838868, 1);
+                    this.addMarker(50.774720, 6.045920, 2);
+                    //this.updateCenter(23,11);
+                    this.updateCircle("radius",2000);
+                },
+
+                addMarker(lat, lng, id) {
+
+                    this.gmarkers.push({
+                        id: id,
+                        name: "City1",
+                        content: "Der Aachener Dom, auch Hoher Dom zu Aachen, Aachener Münster oder Aachener Marienkirche, ist die Bischofskirche des Bistums Aachen und das bedeutendste Wahrzeichen der Stadt Aachen",
+                        content1: "Hier steht ein Text zu  Angeboten und Informationslinks",
+
+                        content2: "Radwandern\n" +
+                            "\n" +
+                            "Erradeln Sie Aachen und sein Umland auf vielen schönen Nebenstraßen - z.B. nach den folgenden Routenvorschlägen ",
+                        position: {
+                            lat: lat,
+                            lng: lng,
+                        },
+                        icon: {
+                            url: "https://i.ibb.co/Gtx9pyv/home.png",
+                            scaledSize: {width: 48, height: 55},
+                            labelOrigin: {x: 16, y: -10}
+                        },
+                        img: require("../images/aachendom.jpeg"),
+                        radius: 2000,
+                        fillOpacity: "0.6",
+                        fillColor: "#00FF00"
+
+                    });
+                    return this.gmarkers;
+                },
+                updateCenter(lat,lng) {
+                    this.center = {
+                        lat: lat,
+                        lng: lng
+                    };
+                },
+                updateCircle(prop, value) {
+                    if (prop === 'radius') {
+                        console.log("radius");
+                        this.radius=value;
+                        console.log(this.radius);
+                    } else if (prop === 'bounds') {
+                       this.circleBounds = value;
+                    }
+                },
+
+            },
+
+        mounted: function () {
+
+            console.log('Warte auf Post');
+            let self = this;
+            console.log(self.$refs); // Shows the mapRef object reference
+            console.log(self.$refs.mapRef); // returns undefined ???
+
+            this.init();
+            /*
+            axios
+                .post('http://localhost:8081/?search=f#/result')
+                .then(response => {
+                    this.id = response.data;
+                    this.name = response.data;
+                    this.center = response.data;
+                    this.position = response.data;
+                    this.zoom = response.data;
+                    alert("Gmap Daten wurden erfolgreich übertragen!");
+                })
+                .catch(e => alert(e));
+       */
+        },
+    };
+</script>
 <style>
     .fas {
         color: dodgerblue;

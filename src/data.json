@@ -1,0 +1,83 @@
+{
+  "Stadtteile_Aachen": [
+    {
+      "id": 1,
+      "name": "Location 1",
+      "Stadtteil": "Aachen Rothe Erde",
+      "location": {
+        "lat": 50.7797530188,
+        "lon": 6.12591559572
+      },
+      "label": "1",
+      "icon": {
+        "url": "https://i.ibb.co/chfqBTq/home-location-marker-2.png",
+        "scaledSize": {
+          "width": 50,
+          "height": 48
+        },
+        "labelOrigin": {
+          "x": 16,
+          "y": -10
+        }
+      },
+      "pic": "https://images.unsplash.com/photo-1489706920962-640fcad4b463?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=057570f4673903ff39658ee6ac17a66a&auto=format&fit=crop&w=600&q=60"
+    },
+    {
+      "id": 2,
+      "name": "Location 2",
+      "Stadtteil": "Aachen Kornelimünster",
+      "address": "Straßeneingabe 2 ",
+      "location": {
+        "lat": 50.7151954026,
+        "lon": 6.14988367979
+      },
+      "label": "2",
+      "icon": {
+        "url": "https://i.ibb.co/chfqBTq/home-location-marker-2.png",
+        "scaledSize": {
+          "width": 50,
+          "height": 48
+        }
+      },
+      "pic": "https://images.unsplash.com/photo-1483519396903-1ef292f4974a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=594ae239b7e8e8ed17d447a9950adeb4&auto=format&fit=crop&w=600&q=60"
+    },
+    {
+      "id": 3,
+      "Stadtteil": "Aachen Mitte",
+      "name": "Location 3",
+      "address": "Straßeneingabe 3",
+      "location": {
+        "lat": 50.7770654027,
+        "lon": 6.08646922231
+      },
+      "label": "3",
+      "icon": {
+        "url": "https://i.ibb.co/chfqBTq/home-location-marker-2.png",
+        "scaledSize": {
+          "width": 50,
+          "height": 48
+        }
+      },
+      "pic": "https://images.unsplash.com/photo-1520803703785-bfb8d67060b1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5101b3f0270554cf6224f12e70cb7fb9&auto=format&fit=crop&w=600&q=60"
+    },
+    {
+      "id": 4,
+      "Stadtteil": "Aachen Laurensberg",
+      "name": "Location 4",
+      "address": "Straßeneingabe 4",
+      "location": {
+        "lat": 50.821909777,
+        "lon": 6.04972121163
+      },
+      "label": "4",
+      "icon": {
+        "url": "https://i.ibb.co/chfqBTq/home-location-marker-2.png",
+        "scaledSize": {
+          "width": 50,
+          "height": 48
+        }
+      },
+      "pic": "https://images.unsplash.com/photo-1520803703785-bfb8d67060b1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5101b3f0270554cf6224f12e70cb7fb9&auto=format&fit=crop&w=600&q=60"
+    }
+  ]
+}
