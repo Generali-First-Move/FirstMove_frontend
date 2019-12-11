@@ -168,7 +168,7 @@
 
                 initMap() {
 
-                    console.log("initMap");
+                   // console.log("initMap");
                     this.mapOptions = {
                         center: {lat: 40.7753455, lng: 3.0838868},
                         zoom: 17,
@@ -177,7 +177,7 @@
 
                 },
                 initialize() {
-                    console.log("Initialize");
+                    //console.log("Initialize");
 
                     this.initMap();
 
@@ -282,7 +282,7 @@
             },
 
         mounted: function () {
-            console.log('Get Request');
+            //console.log('Get Request');
             this.initialize();
 
             /*

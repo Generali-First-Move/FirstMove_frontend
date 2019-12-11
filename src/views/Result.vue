@@ -106,7 +106,7 @@ export default {
             {
 
                 init() {
-                    console.log("marker setzen");
+                    //console.log("marker setzen");
                     this.addMarker(50.7753455, 6.0838868, 1);
                     this.addMarker(50.774720, 6.045920, 2);
                     //this.updateCenter(23,11);
@@ -149,8 +149,9 @@ export default {
                 },
                 updateCircle(prop, value) {
                     if (prop === 'radius') {
-                        console.log("radius");
+                        //console.log("radius");
                         this.radius=value;
+                        // eslint-disable-next-line no-console
                         console.log(this.radius);
                     } else if (prop === 'bounds') {
                        this.circleBounds = value;
@@ -161,10 +162,10 @@ export default {
 
         mounted: function () {
 
-            console.log('Warte auf Post');
-            let self = this;
-            console.log(self.$refs); // Shows the mapRef object reference
-            console.log(self.$refs.mapRef); // returns undefined ???
+            //console.log('Warte auf Post');
+           // let self = this;
+            //console.log(self.$refs); // Shows the mapRef object reference
+           // console.log(self.$refs.mapRef); // returns undefined ???
 
             this.init();
             /*
