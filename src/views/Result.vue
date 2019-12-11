@@ -149,7 +149,7 @@ export default {
                 },
                 updateCircle(prop, value) {
                     if (prop === 'radius') {
-                        //console.log("radius");
+                       // console.log("radius");
                         this.radius=value;
                         // eslint-disable-next-line no-console
                         console.log(this.radius);
@@ -199,7 +199,7 @@ export default {
 
     #filter {
         position: relative;
-        left: 1119px;
+        left: 1432px;
         bottom: 38px;
     }
 
@@ -211,7 +211,7 @@ export default {
         text-align: left;
         margin-left: 10px;
         margin-top: 55px;
-        width: 1478px;
+        width: auto;
         height: 730px;
     }
 
@@ -257,8 +257,9 @@ export default {
         position: relative;
         right: 40px;
         top: 5px;
-        left: 820px;
+        left: 1190px;
         color: black;
+
     }
 
     #result h5 {
