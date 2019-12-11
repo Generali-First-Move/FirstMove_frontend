@@ -33,22 +33,18 @@
 
 <!--
 <script>
-
 import GoogleMapsApiLoader from 'google-maps-api-loader'
-
 export default {
     props: {
         mapConfig: Object,
         apiKey: String,
     },
-
     data() {
         return {
             google: null,
             map: null
         }
     },
-
     async mounted() {
         const googleMapApi = await GoogleMapsApiLoader({
             apiKey: this.apiKey
@@ -56,7 +52,6 @@ export default {
         this.google = googleMapApi
         this.initializeMap()
     },
-
     methods: {
         initializeMap() {
             const mapContainer = this.$refs.googleMap
@@ -66,21 +61,17 @@ export default {
         }
     }
 }
-
 </script>
 -->
 <script>
     //import * as VueGoogleMaps from 'vue2-google-maps';
     //var lat = document.getElementById("lat"); //this will select the input with  id = lat
     //var lng = document.getElementById("lng"); // this will select the input with id = lng
-
     //import axios from 'axios'
     import GoogleMap from '../components/GoogleMap.vue'
-
     export default {
         "name":"GoogleMap",
         data: function () {
-
             return {
                 id: '',
                 name: '',
@@ -94,17 +85,12 @@ export default {
             }
         },
         computed:{
-
-
         },
         components: {
             'google': GoogleMap
-
         },
-
         methods:
             {
-
                 init() {
                     //console.log("marker setzen");
                     this.addMarker(50.7753455, 6.0838868, 1);
@@ -112,15 +98,12 @@ export default {
                     //this.updateCenter(23,11);
                     this.updateCircle("radius",2000);
                 },
-
                 addMarker(lat, lng, id) {
-
                     this.gmarkers.push({
                         id: id,
                         name: "City1",
                         content: "Der Aachener Dom, auch Hoher Dom zu Aachen, Aachener Münster oder Aachener Marienkirche, ist die Bischofskirche des Bistums Aachen und das bedeutendste Wahrzeichen der Stadt Aachen",
                         content1: "Hier steht ein Text zu  Angeboten und Informationslinks",
-
                         content2: "Radwandern\n" +
                             "\n" +
                             "Erradeln Sie Aachen und sein Umland auf vielen schönen Nebenstraßen - z.B. nach den folgenden Routenvorschlägen ",
@@ -137,7 +120,6 @@ export default {
                         radius: 2000,
                         fillOpacity: "0.6",
                         fillColor: "#00FF00"
-
                     });
                     return this.gmarkers;
                 },
@@ -149,24 +131,20 @@ export default {
                 },
                 updateCircle(prop, value) {
                     if (prop === 'radius') {
-                       // console.log("radius");
+                        // console.log("radius");
                         this.radius=value;
                         // eslint-disable-next-line no-console
                         console.log(this.radius);
                     } else if (prop === 'bounds') {
-                       this.circleBounds = value;
+                        this.circleBounds = value;
                     }
                 },
-
             },
-
         mounted: function () {
-
             //console.log('Warte auf Post');
-           // let self = this;
+            // let self = this;
             //console.log(self.$refs); // Shows the mapRef object reference
-           // console.log(self.$refs.mapRef); // returns undefined ???
-
+            // console.log(self.$refs.mapRef); // returns undefined ???
             this.init();
             /*
             axios
@@ -188,7 +166,6 @@ export default {
     .fas {
         color: dodgerblue;
     }
-
     .vue-map-container {
         height: 700px;
         text-align: left;
@@ -196,17 +173,14 @@ export default {
         right: 15px;
         width: auto;
     }
-
     #filter {
         position: relative;
         left: 1432px;
         bottom: 38px;
     }
-
     #btn-filter {
         width: 100px;
     }
-
     .google {
         text-align: left;
         margin-left: 10px;
@@ -214,8 +188,6 @@ export default {
         width: auto;
         height: 730px;
     }
-
-
     #result {
         background-color: #ffffff;
         height: auto;
@@ -223,35 +195,28 @@ export default {
         padding-left: 15px;
         margin-top: 5px;
     }
-
     #result fieldset {
         background-color: white;
         border-radius: 4px;
         color: black;
         width: 250px;
-
     }
-
     #result .Pro {
         color: green;
         text-decoration: underline;
         text-decoration-color: black;
     }
-
     #result .Contra {
         color: red;
         text-decoration: underline;
         text-decoration-color: black;
     }
-
     #footer p {
         color: black;
     }
-
     #result h3 {
         font-variant: small-caps;
     }
-
     #prefernce {
         font-variant: small-caps;
         position: relative;
@@ -259,80 +224,59 @@ export default {
         top: 5px;
         left: 1190px;
         color: black;
-
     }
-
     #result h5 {
         color: black;
     }
-
     #result h6 {
         top: 200px;
     }
-
     #result h1 {
         text-align: left;
         font-size: 2.5vw;
         color: black;
         font-variant-caps: inherit;
     }
-
     #result h3 {
-
     }
-
     #link p {
         color: black;
     }
-
     .col-md-3 {
         right: 10px;
         text-align: left;
         bottom: 10px;
     }
-
     .col-md-5 {
         text-align: center;
         top: 105px;
     }
-
     .col-md-9 {
         text-align: left;
         max-width: 100%;
-
     }
-
     #result row {
         text-align: center;
         padding-top: 102px;
     }
-
-
     * {
         box-sizing: border-box;
     }
-
     img {
         max-width: 100%;
     }
-
     .details-wrapper {
         width: 75vw;
         margin: 0 auto;
         background-color: #BFBFBF;
         box-shadow: 0 -1px 1px 5px #BFBFBF;
     }
-
     details {
         padding: .5rem;
         font: 1.25rem/1.2 sans-serif;
-
-
     }
-
     #City1 {
         padding: .25rem 1rem;
-
         background-color: limegreen;
         font: bold 1.25rem/2 sans-serif;
         color: floralwhite;
@@ -342,10 +286,8 @@ export default {
         cursor: pointer;
         list-style: none; /* Triangle not shown */
     }
-
     #City2 {
         padding: .25rem 1rem;
-
         background-color: #88ff00;
         font: bold 1.25rem/2 sans-serif;
         color: floralwhite;
@@ -355,10 +297,8 @@ export default {
         cursor: pointer;
         list-style: none; /* Triangle not shown */
     }
-
     #City3 {
         padding: .25rem 1rem;
-
         background-color: #edff21;
         font: bold 1.25rem/2 sans-serif;
         color: floralwhite;
@@ -368,47 +308,38 @@ export default {
         cursor: pointer;
         list-style: none; /* Triangle not shown */
     }
-
     #box_green {
         background-color: rgba(136, 243, 147, 1);
         opacity: 0.8;
     }
-
     #box_red {
         background: #edff21;
         opacity: 0.75;
-
     }
-
     #box_orange {
         background: #88ff00;
         opacity: 0.85;
         height: auto;
     }
-
     /* Triangle not shown - Style for Webkit-Browser */
     summary::-webkit-details-marker {
         display: none;
     }
-
     summary::before {
         padding-right: .25rem;
         content: '+ '; /* Instead of Triangle closed */
     }
-
     details[open] summary::before {
         padding-right: .25rem;
         font-style: italic;
         content: '- '; /* Instead of Triangle open */
     }
-
     /* Styling the summary in case of open 'details' */
     details[open] summary {
         background-color: orange;
         font-style: italic;
         border-radius: 3px 3px 0 0;
     }
-
     .details-content {
         margin: 0;
         padding: .25rem 1rem;
@@ -417,19 +348,16 @@ export default {
         box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.5);
         color: red;
     }
-
     .map-container {
         color: black;
         width: auto;
         height: 500px;
     }
-
     .InfoWindow {
         position: relative;
         width: auto;
         height: auto;
     }
-
     .backgroundimg {
         background-image: url("../assets/yingchou-han-IJrIeCs3D4g-unsplash.jpeg");
         width: 100%;
@@ -438,16 +366,13 @@ export default {
         background-blend-mode: darken;
         background-position: center center;
     }
-
     .bild {
         position: relative;
     }
-
     .pic {
         width: auto;
         height: auto;
     }
-
     #backgroundimage {
         height: auto;
         left: 0;
@@ -457,27 +382,22 @@ export default {
         top: 0;
         z-index: -1;
     }
-
     gmap-infowindow {
         position: relative;
         width: auto;
         height: auto;
-
     }
-
     .InfoWindowframe {
         position: relative;
         width: 650px;
         height: auto;
     }
-
     .map-container-6 {
         overflow: hidden;
         padding-bottom: 56.25%;
         position: relative;
         height: 0;
     }
-
     .map-container-6 iframe {
         left: 0;
         top: 0;
@@ -485,11 +405,9 @@ export default {
         width: 100%;
         position: absolute;
     }
-
     .blue.accent-1 {
         background-color: #82b1ff !important;
     }
-
     .form-header {
         padding: 1rem;
         margin-top: -3.13rem;
@@ -500,7 +418,6 @@ export default {
         -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
         box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
     }
-
     .Infobox {
         position: relative;
         top: 30px;
@@ -510,26 +427,21 @@ export default {
         margin-right: -15px;
         margin-left: -15px;
     }
-
     .card-body {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
         border-radius: 0 !important;
     }
-
     .Content {
         position: relative;
         padding-top: 20px;
     }
-
     .gm-style-iw {
         width: auto !important;
         top: 0 !important;
         left: 0 !important;
         border-radius: 2px 2px 0 0;
     }
-
-
     .bonbon {
         width: 200px;
         height: 60px;
@@ -540,15 +452,12 @@ export default {
         border-radius: 1em;
         margin: 1em;
     }
-
     .bonbon.rot {
         background: linear-gradient(to bottom, white, red);
     }
-
     .bonbon.orange {
         background: linear-gradient(to bottom, white, orange);
     }
-
     .bonbon:hover,
     .bonbon:focus {
         box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;

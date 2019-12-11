@@ -23,7 +23,7 @@
                             <p>52005 Aachen</p>
                             <p>T +49.241.6009 0</p>
                             <p>F +49.241.6009 51090</p>
-                        <div class="map-responsive">
+                        <div class="map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2524.1205165270817!2d6.094655315270689!3d50.75479897951844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41722d05f1737db7%3A0x9a7eb562b5677c74!2sFH%20Aachen!5e0!3m2!1sde!2sde!4v1575736392035!5m2!1sde!2sde" width="380" height="280" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                         </div>
                         </article>
@@ -42,8 +42,8 @@
                             <p>52005 Aachen</p>
                             <p>T +49.241.6009 0</p>
                             <p>F +49.241.6009 51090</p>
-                            <div class="map-responsive">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2524.1205165270817!2d6.094655315270689!3d50.75479897951844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41722d05f1737db7%3A0x9a7eb562b5677c74!2sFH%20Aachen!5e0!3m2!1sde!2sde!4v1575736392035!5m2!1sde!2sde" width="380" height="280" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                            <div class="map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2524.1205165270817!2d6.094655315270689!3d50.75479897951844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41722d05f1737db7%3A0x9a7eb562b5677c74!2sFH%20Aachen!5e0!3m2!1sde!2sde!4v1575736392035!5m2!1sde!2sde" width="380" height="280" frameborder="0" ></iframe>
                             </div>
                         </article>
                     </div>
@@ -106,6 +106,7 @@
         .map{
             width: 100%;
             text-shadow: .1rem .1rem .5rem black;
+            align-items: center;
         }}
 
     .caption-contact{

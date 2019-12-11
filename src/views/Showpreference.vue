@@ -271,7 +271,7 @@
     .sliderFront{
         position: relative;
         top: 80%;
-        margin-top: 200px;
+        margin-top: 150px;
     }
     #buttonshow{
         z-index: +100;

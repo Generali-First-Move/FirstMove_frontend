@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34ced9b1-a877-4586-b6de-27bdaa2aaabe" name="Default Changelist" comment="Google Map Change Window Implementation Alphaversion">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/273b1466c3056cb492c5055ab2f8acc67b209e48" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/273b1466c3056cb492c5055ab2f8acc67b209e48" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/27d89d78b6c08c80d45690842d556ca71b57e33f" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/27d89d78b6c08c80d45690842d556ca71b57e33f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/7/67a873e36468cdbf75bf6171961a8f6f0cadaec8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/7/67a873e36468cdbf75bf6171961a8f6f0cadaec8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/ebc4051053706a31b7c331f242e0ed6f04a8a6ce" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/ebc4051053706a31b7c331f242e0ed6f04a8a6ce" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="7c34eacc-5a1c-4b69-a758-6c95be558fa7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Contact.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Contact.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Result.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Showpreference.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Showpreference.vue" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,10 +57,8 @@
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="SonarLintApp" />
@@ -74,6 +71,18 @@
       <recent name="C:\git\FirstMove_frontend\src" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="Result.vue" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/FirstMove_frontend/src/views/Result.vue" useBuiltInWebServerPort="true">
       <method v="2" />
@@ -84,24 +93,12 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="34ced9b1-a877-4586-b6de-27bdaa2aaabe" name="Default Changelist" comment="Google Map Change Window Implementation Alphaversion" />
+      <changelist id="7c34eacc-5a1c-4b69-a758-6c95be558fa7" name="Default Changelist" comment="" />
       <created>1575054003961</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -112,41 +109,12 @@
       <workItem from="1575124106127" duration="8744000" />
       <workItem from="1575133341416" duration="440000" />
       <workItem from="1575133791825" duration="583000" />
-      <workItem from="1575193389065" duration="9231000" />
-      <workItem from="1575270301985" duration="3558000" />
-      <workItem from="1575274795466" duration="1523000" />
-      <workItem from="1575276353881" duration="3028000" />
-      <workItem from="1575279610138" duration="819000" />
-      <workItem from="1575280445450" duration="158000" />
-      <workItem from="1575280842549" duration="1502000" />
-      <workItem from="1575282369595" duration="1681000" />
-      <workItem from="1575284217167" duration="1799000" />
-      <workItem from="1575296753623" duration="1459000" />
-      <workItem from="1575298246081" duration="519000" />
-      <workItem from="1575298859940" duration="2247000" />
-      <workItem from="1575372915746" duration="7412000" />
-      <workItem from="1575467643120" duration="69000" />
-      <workItem from="1575469741574" duration="1695000" />
-      <workItem from="1575482350057" duration="11007000" />
-      <workItem from="1575535978737" duration="2362000" />
-      <workItem from="1575569299402" duration="18256000" />
-      <workItem from="1575658651091" duration="2515000" />
-      <workItem from="1575664181773" duration="600000" />
-      <workItem from="1575722084280" duration="1609000" />
-      <workItem from="1575724458831" duration="2858000" />
-      <workItem from="1575728929415" duration="10899000" />
-      <workItem from="1575743981824" duration="1150000" />
-      <workItem from="1575745182473" duration="10898000" />
-      <workItem from="1575813206186" duration="26392000" />
-      <workItem from="1575845398409" duration="2495000" />
-      <workItem from="1575874819537" duration="15862000" />
-      <workItem from="1575904542053" duration="225000" />
-      <workItem from="1575905310259" duration="51782000" />
-      <workItem from="1576019098566" duration="32000" />
-      <workItem from="1576019820067" duration="405000" />
-      <workItem from="1576020875145" duration="587000" />
-      <workItem from="1576024178215" duration="1062000" />
-      <workItem from="1576025256261" duration="709000" />
+      <workItem from="1575733213682" duration="4884000" />
+      <workItem from="1575820162326" duration="9227000" />
+      <workItem from="1575830247232" duration="5440000" />
+      <workItem from="1575874137400" duration="7184000" />
+      <workItem from="1576048497389" duration="783000" />
+      <workItem from="1576069818274" duration="967000" />
     </task>
     <task id="LOCAL-00001" summary="Google Map Change Window Implementation Alphaversion">
       <created>1575133979636</created>
@@ -155,35 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575133979636</updated>
     </task>
-    <task id="LOCAL-00002" summary="Google Map Change Window Implementation Alphaversion">
-      <created>1575469790620</created>
+    <task id="LOCAL-00002" summary="Präferenzenseite anpassen">
+      <created>1575835637947</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1575469790620</updated>
+      <updated>1575835637947</updated>
     </task>
-    <task id="LOCAL-00003" summary="Google Map Change Window Implementation Alphaversion">
-      <created>1575480897049</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1575480897049</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Google Map Change Window Implementation Alphaversion">
-      <created>1575583895372</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1575583895372</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Google Map Change Window Implementation Alphaversion">
-      <created>1576023668434</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1576023668434</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,127 +154,42 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Google Map Change Window Implementation Alphaversion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Google Map Change Window Implementation Alphaversion" />
+    <MESSAGE value="Sidebar Anpassungen" />
+    <MESSAGE value="Präferenzenseite anpassen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Präferenzenseite anpassen" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="526" y="84" width="814" height="685" key="#Custom_Plugin_Repositories" timestamp="1575726378742">
+    <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575115447121">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="526" y="84" width="814" height="685" key="#Custom_Plugin_Repositories/0.0.1536.824@0.0.1536.824" timestamp="1575726378742" />
-    <state x="361" y="70" key="#ESLint" timestamp="1575993900381">
+    <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1575115447121" />
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1575133977110">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="70" key="#ESLint/0.0.1536.824@0.0.1536.824" timestamp="1575993900380" />
-    <state x="605" y="94" key="#HTTP_Proxy" timestamp="1576022858309">
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1575133977110" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1575134183024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="605" y="94" key="#HTTP_Proxy/0.0.1536.824@0.0.1536.824" timestamp="1576022858309" />
-    <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575480948302">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1575134183024" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1575134183024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="139" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1575480948302" />
-    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1576023731525">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1575134183024" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1575134183024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1576023731525" />
-    <state x="147" y="64" key="DiffContextDialog" timestamp="1576023692626">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1575134183024" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1575134183024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="64" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1576023692626" />
-    <state x="714" y="167" key="FileChooserDialogImpl" timestamp="1575726506556">
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1575134183024" />
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1575133348574">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="714" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1575726506556" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1576022103238">
+    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1575133348574" />
+    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575134035623">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576022103238" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1576022103238">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576022103238" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1576022103238">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576022103238" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1576022103238">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576022103238" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1575897523748">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1575897523748" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1575897523748">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1575897523748" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1575897523748">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1575897523748" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1575897523748">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1575897523748" />
-    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1575897523749">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1575897523749" />
-    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1575897523749">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1575897523749" />
-    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1575897523748">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1575897523748" />
-    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1575897523749">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1575897523749" />
-    <state x="568" y="122" key="RollbackChangesDialog" timestamp="1575847312743">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="568" y="122" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1575847312743" />
-    <state x="555" y="44" key="SettingsEditor" timestamp="1576019141818">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="555" y="44" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1576019141818" />
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2" timestamp="1576023772808">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1576023772808" />
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog" timestamp="1576024179578">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="465" y="235" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576024179578" />
-    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576023599175">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1576023599175" />
-    <state x="446" y="203" key="git4idea.merge.GitPullDialog" timestamp="1576021589168">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="446" y="203" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1576021589168" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1575927572122">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1575927572122" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1575928438135">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1575928438135" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/views/Showpreference.vue</url>
-          <line>146</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="578" y="328" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1575134035623" />
   </component>
 </project>
