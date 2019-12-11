@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col">
         <vs-button @click="active=!active" color="danger" id="fixednavbutton" data-target="#navbarResponsive" type="filled">Menu</vs-button></div>
-       <div class="col">
+       <div class="col-12">
         <a class="navbar-brand" href="/"><img src="@/assets/logo_transparent_white.png" width="110" height="100" alt="logo"></a></div>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -19,23 +19,23 @@
 
             <ul class="navbar-nav ml-auto" id="sidebar">
                 <li class="nav-item">
-                    <router-link to="/" class="nav-link active"><i class="fas fa-home"></i> Home</router-link>
+                    <router-link to="/" class="nav-link active"><em class="fas fa-home"></em> Home</router-link>
                 </li>
                 <vs-divider position="left"></vs-divider>
                 <li class="nav-item">
-                    <router-link to="/show-preference" class="nav-link active"><i class="fas fa-heart"></i> Präferenzen</router-link>
+                    <router-link to="/show-preference" class="nav-link active"><em class="fas fa-heart"></em> Präferenzen</router-link>
                 </li>
                 <vs-divider position="left"></vs-divider>
                 <li class="nav-item">
-                    <router-link to="/contact" class="nav-link active"><i class="fas fa-user-friends"></i> Kontakt</router-link>
+                    <router-link to="/contact" class="nav-link active"><em class="fas fa-user-friends"></em> Kontakt</router-link>
                 </li>
                 <vs-divider position="left"></vs-divider>
                 <li class="nav-item">
-                    <router-link to="/result" class="nav-link active"><i class="fas fa-external-link-square-alt"></i> Impressum</router-link>
+                    <router-link to="/result" class="nav-link active"><em class="fas fa-external-link-square-alt"></em> Impressum</router-link>
                 </li>
             </ul>
             <div class="footer-sidebar" slot="footer">
-                <button @click="active=!active" color="dark" class="btn btn-outline-danger" data-target="#navbarResponsive" id="bu"><i id="logo" class="fas fa-arrow-left"></i></button>
+                <button @click="active=!active" color="dark" class="btn btn-outline-danger" data-target="#navbarResponsive" id="bu"><em id="logo" class="fas fa-arrow-left"></em></button>
             </div>
         </vs-sidebar>
 
@@ -54,7 +54,7 @@
     export default {
         name: "Firstmove",
         data:()=>({
-            active:false,
+            active:true,
             los: false
         })
     }
@@ -133,12 +133,12 @@
         position: fixed;
         z-index: +100;
         border-width: medium;
-        padding: .6rem 1.3rem;
+        padding: .8rem 1rem;
         font-size: 1.1rem;
         background-color: rgba(111, 111, 111, 0.5) !important;
         border-radius: 15px;
         color: white;
-        margin-left: 10px;
+
         margin-top: 25px;
     }
 </style>

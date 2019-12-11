@@ -190,9 +190,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col"></div>
-                <div class="col"> <router-link to="/result" class="nav-link"><button type="button" name="action" class="btn btn-outline-light btn-lg" data-target="#navbarResponsive" id="buttonshow">Zu deiner Wohngegend</button></router-link></div>
-                <div class="col"></div>
+
+               <router-link to="/result" class="nav-link"><button type="button" name="action" class="btn btn-outline-light btn-lg" data-target="#navbarResponsive" id="buttonshow">Zu deiner Wohngegend</button></router-link>
+
             </div>
         </form>
         </div>
@@ -248,12 +248,11 @@
 <style>
     .caption-show{
         width: 100%;
-        top: 20%;
+        top: 30%;
         z-index: 1;
         color: #ffffff;
         text-transform: uppercase;
         background-size: cover;
-        margin-bottom: 100px;
         position: absolute;
     }
     .caption-show h1{
@@ -272,20 +271,20 @@
     .sliderFront{
         position: relative;
         top: 80%;
-        margin-top: 280px;
+        margin-top: 200px;
     }
     #buttonshow{
         z-index: +100;
-        padding: 30px 70px;
+        padding: 20px 50px;
         border-radius: 15px;
         font-size: 1.5rem;
         background-color: rgba(111, 111, 111, 0.5) !important;
-
+        position: center;
     }
 
     #buttonshow:hover{
         background-color: white;
-        color: black;
+        color: maroon;
     }
     /*--- Extra Bootstrap Column Padding --*/
     [class*="col-"] {
@@ -328,7 +327,8 @@
         background-repeat: no-repeat
     }
     .vue {
-        padding-left:15px;
+margin-left: 10px;
+        margin-right: 10px;
         right: 50%;
         bottom:10px;
         width: 100%;
@@ -336,7 +336,8 @@
         margin-top: 50px;
     }
     .vue h4{
-        left: 10%;
+        text-align: center;
+        padding-left: 0px;
     }
     #custom-handle {
         width: 2em;
@@ -449,6 +450,7 @@
 
 
     /* process style */
+
     .vue .vue-slider-process {
         background-color: maroon;
         border-radius: 15px;
@@ -516,5 +518,9 @@
         color: white;
         border: solid 1px white;
         padding: 5px;
+    }
+
+    .offset .col-9{
+        padding: 0px;
     }
 </style>
