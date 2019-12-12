@@ -93,12 +93,13 @@ export default {
             {
                 init() {
                     //console.log("marker setzen");
-                    this.addMarker(50.7753455, 6.0838868, 1);
-                    this.addMarker(50.774720, 6.015920, 2);
+                    this.addMarker(1,50.7753455, 6.0838868, "67FF7B", 1500);
+                    this.addMarker(2,50.774720, 6.015920, "00FF22",3000);
+                    this.addMarker(3,50.774720, 5.905920, "5BF303",1500);
                     //this.updateCenter(23,11);
                     this.updateCircle("radius",2000);
                 },
-                addMarker(lat, lng, id) {
+                addMarker(id, lat, lng, fillColor, radius) {
                     this.gmarkers.push({
                         id: id,
                         name: "City1",
@@ -117,10 +118,10 @@ export default {
                             labelOrigin: {x: 16, y: -10}
                         },
                         img: require("../images/aachendom.jpeg"),
-                        radius: 2000,
+                        radius: radius,
                         fillOpacity: "0.5",
 
-                        fillColor: "#00FF00",
+                        fillColor: "#"+fillColor,
                     });
 
                     return this.gmarkers;

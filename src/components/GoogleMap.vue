@@ -88,7 +88,7 @@
 
 <script>
     import {gmapApi} from "vue2-google-maps";
-    import {Stadtteile_Aachen} from "../data";
+    //import {Stadtteile_Aachen} from "../data";
     // import axios from "axios";
     //import data from "../data.json"
 
@@ -130,6 +130,7 @@
             {
                 google: gmapApi,
 
+                /*
                 gmarkers1() {
                     return Stadtteile_Aachen.map(({label, location: {lat, lon}, name, prev, icon}) => ({
                         label: {
@@ -147,7 +148,7 @@
                         icon,
                     }));
                 },
-
+                */
                 // eslint-disable-next-line vue/no-dupe-keys
                 /*markers() {
                     return this.map.locations.map(
