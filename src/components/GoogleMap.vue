@@ -66,7 +66,7 @@
                     :center="pin.position"
                     :radius="radius"
                     :visible="true"
-                    :options="{fillColor:pin.fillColor,fillOpacity:pin.fillOpacity}"/>
+                    :options="{fillColor:pin.fillColor,fillOpacity:pin.fillOpacity, strokeColor: '#FFFFFF',  strokeOpacity: 0.2,}"/>
 
             <gmap-marker
                     v-for="(item, index) in gmarkers1"

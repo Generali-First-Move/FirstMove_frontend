@@ -94,7 +94,7 @@ export default {
                 init() {
                     //console.log("marker setzen");
                     this.addMarker(50.7753455, 6.0838868, 1);
-                    this.addMarker(50.774720, 6.045920, 2);
+                    this.addMarker(50.774720, 6.015920, 2);
                     //this.updateCenter(23,11);
                     this.updateCircle("radius",2000);
                 },
@@ -118,9 +118,11 @@ export default {
                         },
                         img: require("../images/aachendom.jpeg"),
                         radius: 2000,
-                        fillOpacity: "0.6",
-                        fillColor: "#00FF00"
+                        fillOpacity: "0.5",
+
+                        fillColor: "#00FF00",
                     });
+
                     return this.gmarkers;
                 },
                 updateCenter(lat,lng) {
