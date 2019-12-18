@@ -6,13 +6,15 @@
                 </div>
             </div>
         </div>
+        <div class="row">
         <div class="caption-show text-center">
-            <h1>Deine Präferenzen</h1>
-            <h3>Hier hast du die Möglichkeit die Präferenzen für <br><h1><span>{{city}}</span></h1>anzupassen</h3>
-        </div>
+        <h1>Deine Präferenzen</h1>
+        <h3>Hier hast du die Möglichkeit die Präferenzen für <br><h1><span>{{city}}</span></h1>anzupassen</h3></div>
+    </div>
         <div class="sliderBackground"></div>
+        <div class="row">
         <div class="col-1"></div>
-        <div class="col-9">
+        <div class="col-11">
         <form class="sliderFront">
             <div class="form-group">
                 <div class="showContent">
@@ -197,7 +199,7 @@
         </form>
         </div>
 
-
+        </div>
     </div>
 </template>
 
@@ -269,9 +271,9 @@
         color: white;
     }
     .sliderFront{
-        position: relative;
-        top: 80%;
-        margin-top: 150px;
+        margin-left: 0px;
+        margin-top: 450px;
+
     }
     #buttonshow{
         z-index: +100;
@@ -488,8 +490,7 @@ margin-left: 10px;
         border: 3px solid #ffffff;
         border-radius: 10px;
         padding: .6vw 1.3vw;
-        width: 100%;
-        margin-left: 30%;
+        width: 98%;
         background-color: rgba(0, 0, 0, 0.6) !important;
         color: white;
         margin-top: 30px;
@@ -499,6 +500,7 @@ margin-left: 10px;
             color: white;
             font-size: 1.1em;
             text-align: center;
+
         }
     }
 
@@ -520,7 +522,7 @@ margin-left: 10px;
         padding: 5px;
     }
 
-    .offset .col-9{
+    .offset .col-11{
         padding: 0px;
     }
 </style>

@@ -3,9 +3,9 @@
 
     <div id="navbarResponsive">
 <div class="row">
-    <div class="col">
+    <div class="col-1">
         <vs-button @click="active=!active" color="danger" id="fixednavbutton" data-target="#navbarResponsive" type="filled">Menu</vs-button></div>
-       <div class="col-12">
+       <div class="col">
         <a class="navbar-brand" href="/"><img src="@/assets/logo_transparent_white.png" width="110" height="100" alt="logo"></a></div>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -108,7 +108,7 @@
         border-radius: 15px;
         z-index: +100;
         position: absolute;
-        right: 20px;
+right: 20px;
     }
 
     .navbar-nav{

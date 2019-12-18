@@ -15,13 +15,13 @@
 
         <div class="text-center cityinput offset caption" id="cityinput" ref="content" style="position:relative; color:black; height:300px; overflow-y:scroll;">
             <h2>Wohin ziehst du?</h2>
-            <form @submit="getCity()">
+            <form @submit="getCity()" action="#/show-preference">
                 <div class="col-14">
                     <label for="searchcity"></label>
                     <input type="text" placeholder=" Stadt/PLZ" name="search" v-model="city" id ="searchcity" size="40">
                 </div>
                 <div class="col-14">
-                    <router-link to="/show-preference" type="submit" class="btn btn-outline-light btn-lg" style="color: black">Weiter</router-link>
+                    <button @click="getCity"  type="submit" class="btn btn-outline-light btn-lg" style="color: black">Weiter</button>
                 </div>
             </form>
         </div>
@@ -88,7 +88,7 @@
         padding-bottom: .1rem;
     }
     .caption h2 {
-        font-size: 2vw;
+        font-size: 2rem;
     }
     .caption h3{
         font-size: 2vw;
