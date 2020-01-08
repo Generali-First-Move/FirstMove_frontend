@@ -13,12 +13,12 @@
     </div>
         <div class="sliderBackground"></div>
         <div class="row">
-        <div class="col-1"></div>
-        <div class="col-11">
+        <div class="col-2"></div>
+        <div class="col-10">
         <form class="sliderFront">
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Gute Busanbindung</h3>
+                    <h3>Nähe Bahnhof</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value0" :max="max" :min="min"></vue-slider>
@@ -29,7 +29,7 @@
 
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Nähe Bahnhof</h3>
+                    <h3>Gute Busanbindung</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value1" :max="max" :min="min"></vue-slider>
@@ -40,7 +40,7 @@
 
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Einkaufsmöglichkeiten</h3>
+                    <h3>Uni Nähe</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value2" :max="max" :min="min"></vue-slider>
@@ -51,7 +51,7 @@
 
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Essensmöglichkeiten</h3>
+                    <h3>Einkaufsmöglichkeiten</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value3" :max="max" :min="min"></vue-slider>
@@ -62,7 +62,7 @@
 
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Ruhe/Atmosphäre</h3>
+                    <h3>Park Nähe</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value4" :max="max" :min="min"></vue-slider>
@@ -73,7 +73,7 @@
 
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Sicherheit</h3>
+                    <h3>Sportanlagen</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value5" :max="max" :min="min"></vue-slider>
@@ -84,7 +84,7 @@
 
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Uni Nähe</h3>
+                    <h3>Schwimmbad Nähe</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value6" :max="max" :min="min"></vue-slider>
@@ -95,7 +95,7 @@
 
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Innenstadt</h3>
+                    <h3>Innenstadt Nähe</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value7" :max="max" :min="min"></vue-slider>
@@ -106,7 +106,7 @@
 
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Freizeit</h3>
+                    <h3>Nachtleben</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value8" :max="max" :min="min"></vue-slider>
@@ -117,7 +117,7 @@
 
             <div class="form-group">
                 <div class="showContent">
-                    <h3>Sportaktivitäten</h3>
+                    <h3>Sicherheit</h3>
                     <div class="vue">
                         <!-- default props -->
                         <vue-slider ref="slider" v-model="value9" :max="max" :min="min"></vue-slider>
@@ -126,75 +126,11 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="showContent">
-                    <h3>Fitnessstudio</h3>
-                    <div class="vue">
-                        <!-- default props -->
-                        <vue-slider ref="slider" v-model="value10" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value10 }}</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="showContent">
-                    <h3>Schwimmbäder</h3>
-                    <div class="vue">
-                        <!-- default props -->
-                        <vue-slider ref="slider" v-model="value11" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value11 }}</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="showContent">
-                    <h3>Kletterhalle</h3>
-                    <div class="vue">
-                        <!-- default props -->
-                        <vue-slider ref="slider" v-model="value12" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value12 }}</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="showContent">
-                    <h3>Fußball</h3>
-                    <div class="vue">
-                        <!-- default props -->
-                        <vue-slider ref="slider" v-model="value13" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value14}}</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="showContent">
-                    <h3>Nightlife</h3>
-                    <div class="vue">
-                        <!-- default props -->
-                        <vue-slider ref="slider" v-model="value14" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value15 }}</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="showContent">
-                    <h3>Park</h3>
-                    <div class="vue">
-                        <!-- default props -->
-                        <vue-slider ref="slider" v-model="value15" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value16 }}</h4>
-                    </div>
-                </div>
-            </div>
             <div class="row">
-
+                <div class="col-2"></div>
+                <div class="col-10">
                <router-link to="/result" class="nav-link"><button type="button" name="action" class="btn btn-outline-light btn-lg" data-target="#navbarResponsive" id="buttonshow">Zu deiner Wohngegend</button></router-link>
-
+                </div>
             </div>
         </form>
         </div>
@@ -217,23 +153,17 @@
             return{
                 city: "",
                 min:1,
-                max:10,
-                value0: 1,
-                value1: 1,
-                value2: 1,
-                value3: 1,
-                value4: 1,
-                value5: 1,
-                value6: 1,
-                value7: 1,
-                value8: 1,
-                value9: 1,
-                value10: 1,
-                value11: 1,
-                value12: 1,
-                value13: 1,
-                value14: 1,
-                value15: 1,
+                max:5,
+                value0: 3,
+                value1: 3,
+                value2: 3,
+                value3: 3,
+                value4: 3,
+                value5: 3,
+                value6: 3,
+                value7: 3,
+                value8: 3,
+                value9: 3,
             }
         },
         mounted() {
@@ -286,7 +216,7 @@
 
     #buttonshow:hover{
         background-color: white;
-        color: maroon;
+        color: black;
     }
     /*--- Extra Bootstrap Column Padding --*/
     [class*="col-"] {
@@ -490,10 +420,10 @@ margin-left: 10px;
         border: 3px solid #ffffff;
         border-radius: 10px;
         padding: .6vw 1.3vw;
-        width: 98%;
+        width: 75%;
         background-color: rgba(0, 0, 0, 0.6) !important;
         color: white;
-        margin-top: 30px;
+        margin-top: 5px;
     }
     @media screen and (max-width: 60em){
         .form-group h3{

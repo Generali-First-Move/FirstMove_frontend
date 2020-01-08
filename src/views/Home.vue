@@ -13,15 +13,15 @@
         </b-nav>
         <br>
 
-        <div class="text-center cityinput offset caption" id="cityinput" ref="content" style="position:relative; color:black; height:300px; overflow-y:scroll;">
+        <div class="text-center cityinput offset caption" id="cityinput" ref="content" style="position:relative; color:black; height:300px;">
             <h2>Wohin ziehst du?</h2>
             <form @submit="getCity()" action="#/show-preference">
                 <div class="col-14">
                     <label for="searchcity"></label>
-                    <input type="text" placeholder=" Stadt/PLZ" name="search" v-model="city" id ="searchcity" size="40">
+                    <input type="text" placeholder=" Stadt" name="search" v-model="city" id ="searchcity" size="40">
                 </div>
                 <div class="col-14">
-                    <button @click="getCity"  type="submit" class="btn btn-outline-light btn-lg" style="color: black">Weiter</button>
+                    <button @click="getCity"  type="submit" class="btn btn-outline-dark btn-lg">Weiter</button>
                 </div>
             </form>
         </div>
@@ -182,7 +182,7 @@
     #searchcity{
         border-radius: 6px;
         height: 50px;
-        border-color: #80081e;
+        border-color: black;
         width: 50%;
     }
 </style>

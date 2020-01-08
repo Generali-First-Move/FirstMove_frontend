@@ -3,11 +3,11 @@
 
     <div id="navbarResponsive">
 <div class="row">
-    <div class="col-1">
-        <vs-button @click="active=!active" color="danger" id="fixednavbutton" data-target="#navbarResponsive" type="filled">Menu</vs-button></div>
-       <div class="col">
+    <div class="col">
+        <vs-button @click="active=!active" color="danger" id="fixednavbutton" data-target="#navbarResponsive">Menu</vs-button></div>
+
         <a class="navbar-brand" href="/"><img src="@/assets/logo_transparent_white.png" width="110" height="100" alt="logo"></a></div>
-        </div>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -108,7 +108,8 @@
         border-radius: 15px;
         z-index: +100;
         position: absolute;
-right: 20px;
+        right: 20px;
+        margin-top: 10px;
     }
 
     .navbar-nav{
@@ -130,7 +131,7 @@ right: 20px;
         color: #80081e;
     }
     #fixednavbutton{
-        position: fixed;
+        position: absolute;
         z-index: +100;
         border-width: medium;
         padding: .8rem 1rem;
@@ -138,7 +139,6 @@ right: 20px;
         background-color: rgba(111, 111, 111, 0.5) !important;
         border-radius: 15px;
         color: white;
-
-        margin-top: 25px;
+        margin-top: 10px;
     }
 </style>

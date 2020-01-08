@@ -1,6 +1,7 @@
 <template>
     <div id="result" class="offset">
         <br>
+        <div class="sliderBackground2"></div>
         <div class="row">
             <div class="col-md-5">
                 <h1>Ihre Auswahl:</h1>
@@ -166,6 +167,25 @@ export default {
     };
 </script>
 <style>
+
+    .sliderBackground2{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: transform;
+        background-image: url("../assets/blattö.jpg");
+        background-color: rgba(0,0,0,0.4);
+        background-blend-mode: darken;
+        background-repeat: no-repeat;
+    }
+
+
     .fas {
         color: dodgerblue;
     }
@@ -237,7 +257,7 @@ export default {
     #result h1 {
         text-align: left;
         font-size: 2.5vw;
-        color: black;
+        color: white;
         font-variant-caps: inherit;
     }
     #result h3 {
