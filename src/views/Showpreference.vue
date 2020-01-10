@@ -13,7 +13,7 @@
     </div>
         <div class="sliderBackground"></div>
         <div class="row">
-        <div class="col-2"></div>
+        <div class="col-1"></div>
         <div class="col-10">
         <form class="sliderFront">
             <div class="form-group">
@@ -125,15 +125,17 @@
                     </div>
                 </div>
             </div>
-
+            <div class="col-1"></div>
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-10">
                <router-link to="/result" class="nav-link"><button type="button" name="action" class="btn btn-outline-light btn-lg" data-target="#navbarResponsive" id="buttonshow">Zu deiner Wohngegend</button></router-link>
                 </div>
+                <div class="col-1"></div>
             </div>
         </form>
         </div>
+
 
         </div>
     </div>
@@ -202,14 +204,14 @@
     }
     .sliderFront{
         margin-left: 0px;
-        margin-top: 450px;
+        margin-top: 250px;
 
     }
     #buttonshow{
         z-index: +100;
         padding: 20px 50px;
         border-radius: 15px;
-        font-size: 1.5rem;
+        font-size: 1.5vw;
         background-color: rgba(111, 111, 111, 0.5) !important;
         position: center;
     }
@@ -420,7 +422,7 @@ margin-left: 10px;
         border: 3px solid #ffffff;
         border-radius: 10px;
         padding: .6vw 1.3vw;
-        width: 75%;
+        position: center;
         background-color: rgba(0, 0, 0, 0.6) !important;
         color: white;
         margin-top: 5px;
