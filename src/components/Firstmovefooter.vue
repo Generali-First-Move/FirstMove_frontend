@@ -1,6 +1,5 @@
 <template>
     <div id="footer">
-
             <div class="row justify-content-center">
                     <div class="text-center">
                         <strong>Dieses Portal ist in Zusammenarbeit mit der Generali Deutschland Informatik Services GmbH entstanden </strong>
