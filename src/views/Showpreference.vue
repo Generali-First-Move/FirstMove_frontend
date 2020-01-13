@@ -428,7 +428,6 @@
         border: 3px solid #ffffff;
         border-radius: 10px;
         padding: .6vw 1.3vw;
-        position: center;
         background-color: rgba(0, 0, 0, 0.6) !important;
         color: white;
         margin-left: 25%;

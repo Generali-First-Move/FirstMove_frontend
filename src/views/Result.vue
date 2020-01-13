@@ -1,11 +1,10 @@
 <template>
     <div id="result" class="offset">
-        <br>
+
         <div class="sliderBackground2"></div>
         <div class="row">
             <div class="col-md-5">
-                <h1>Ihre Auswahl:</h1>
-                <h3 id="prefernce">Persönliche Preferenzen:</h3>
+                <h3>Ihr Ergebnis</h3>
                 <form action="/change" id="filter">
                     <button id="btn-filter" type="button" class="btn btn-primary px-3"><i class="fas fa-filter"
                                                                                           aria-hidden="true"></i>Filter
@@ -175,14 +174,14 @@ export default {
         width: 100%;
         height: 100%;
         background-size: cover;
-        background-position: center center;
+        background-position: 25% 25%;
+        background-repeat: no-repeat;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
         will-change: transform;
         background-image: url("../assets/blattö.jpg");
         background-color: rgba(0,0,0,0.4);
         background-blend-mode: darken;
-        background-repeat: no-repeat;
     }
 
 
@@ -238,15 +237,17 @@ export default {
         color: black;
     }
     #result h3 {
-        font-variant: small-caps;
+        color: white;
+        z-index: +100;
     }
+
     #prefernce {
-        font-variant: small-caps;
         position: relative;
         right: 40px;
         top: 5px;
         left: 1190px;
-        color: black;
+        color: white;
+        z-index: +100;
     }
     #result h5 {
         color: black;

@@ -4,7 +4,7 @@
     <div id="navbarResponsive">
 <div class="row">
     <div class="col">
-        <vs-button @click="active=!active" color="danger" id="fixednavbutton" data-target="#navbarResponsive">Menu</vs-button></div>
+        <vs-button @click="active=!active" color="danger" id="fixednavbutton" data-target="#navbarResponsive"><i class="fas fa-bars"></i></vs-button></div>
 
         <a class="navbar-brand" href="/"><img src="@/assets/logo_transparent_white.png" width="110" height="100" alt="logo"></a></div>
 
