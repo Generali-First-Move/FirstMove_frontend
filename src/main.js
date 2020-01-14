@@ -13,7 +13,6 @@ import 'vue-slider-component/theme/default.css'
 import VueSimpleAlert from "vue-simple-alert";
 
 
-
 import Slider from '@jeremyhamm/vue-slider'
 import VueCircleSlider from 'vue-circle-slider'
 
@@ -67,4 +66,7 @@ Vue.use(Vuesax, {
     // options here
 });
 
+//alert
 
+
+Vue.use(VueSimpleAlert);
