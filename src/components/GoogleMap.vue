@@ -89,11 +89,11 @@
 <script>
     import {gmapApi} from "vue2-google-maps";
     //import {Stadtteile_Aachen} from "../data";
-    // import axios from "axios";
+    import axios from "axios";
     //import data from "../data.json"
 
     export default {
-        props: ["id", "position","center","radius" ,"zoom", "gmarkers"],
+        props: ["id", "position", "center", "radius", "zoom", "gmarkers"],
         name: "GoogleMap",
 
         data() {
@@ -169,7 +169,7 @@
 
                 initMap() {
 
-                   // console.log("initMap");
+                    // console.log("initMap");
                     this.mapOptions = {
                         center: {lat: 40.7753455, lng: 3.0838868},
                         zoom: 17,
@@ -178,9 +178,10 @@
 
                 },
                 initialize() {
-                    //console.log("Initialize");
+                    // eslint-disable-next-line no-console
+                    console.log("Initialize");
 
-                    this.initMap();
+                    //this.initMap();
 
                 }
                 ,
@@ -246,7 +247,7 @@
                 }
                 ,
                 updateradius(radius) {
-                   return this.radius=radius;
+                    return this.radius = radius;
                 },
                 getInfoWindow: function (marker) {
 
@@ -285,23 +286,15 @@
         mounted: function () {
             //console.log('Get Request');
             this.initialize();
-
-            /*
-                axios
-                    .post('http://localhost:8081/?search=f#/result',{
-                        id: this.id,
-                        name: this.name,
-                        center: this.center,
-                        position: this.position,
-                        zoom: this.zoom
-
-                    })
-                    .then(function () {
-                        console.log(axios);
-                        alert("Gmap Daten wurden erfolgreich übertragen!");
-                    })
-                    .catch(e => console.log(e));
-            */
+            axios
+                .post('api/result')
+                .then(response => {
+                    this.gmarkers = response.data;
+                    // eslint-disable-next-line no-console
+                    console.log(response.data);
+                    alert("Gmap Daten wurden erfolgreich übertragen!");
+                })
+                .catch(e => alert(e), alert("Kein Get-Empfang"));
         },
     };
 </script>

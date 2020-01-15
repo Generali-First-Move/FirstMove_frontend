@@ -44,7 +44,7 @@
         methods: {
             getCity() {
                 axios
-                    .post('/api/user', {
+                    .post('api/user', {
                         city: this.city,
                     })
                     .then(function () {

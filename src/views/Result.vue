@@ -1,29 +1,57 @@
 <template>
     <div id="result" class="offset">
-        <br>
         <div class="sliderBackground2"></div>
-
-            <div class="row">
-            <div class="col-md-5">
-                <h1>Deine Präferenzen</h1>
-                <h3>Hier hast du die Möglichkeit die a für <br><h1><span>{{dist_safety}}</span></h1>anzupassen</h3>
-                <!--<h1>Ihre Auswahl:</h1>-->
-           </div>
-                <h3 id="prefernce">Persönliche Preferenzen:</h3>
+        <input v-model="colorx" type="color" name="" value="">
+        <vs-button :color="colorx" @click="popupActivo5=true" type="filled" id="popup"><i class="fas fa-info"></i></vs-button>
+        <vs-popup
+                style="color:rgb(255,255,255)"
+                background-color="rgba(255,255,255,.6)"
+                :background-color-popup="colorx" title="background" :active.sync="popupActivo5">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <br>
+                <br>
+                e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <button type="button" class="btn btn-outline-light btn-lg" data-target="#navbarResponsive" style="margin-top: 25px">
+                hallo</button>
+        </vs-popup>
+        <div class="row">
+            <div class="col" id="ergebnis">
+                <h1>Ihr Ergebnis</h1>
                 <form action="/change" id="filter">
                     <button id="btn-filter" type="button" class="btn btn-primary px-3"><i class="fas fa-filter" aria-hidden="true"></i>Filter
                     </button>
-
                 </form>
             </div>
+        </div>
         <div class="form-group google" id="app">
             <div v-show="!isLoading">
                 <google ref="mapRef" :gmarkers="gmarkers" :center="center" :radius="radius" :zoom="zoom"/>
             </div>
         </div>
-
-    </div>
-
+        </div>
+        <div class="text-center offset caption" id="formular" ref="content" style="position:relative; color:black; ">
+           <h1 style="text-align: center; font-size: 2rem; margin-top: 0px;" >Anfrage für dein persönliches Angebot</h1>
+            <div class="form group">
+            <p>Wenn du dich für eine der drei Wohngegenden entscheiden möchtest und Interesse an einem vergünstigsten Versicherungsangebot
+            der Generali hast, besteht hier die Möglichkeit dir dieses einzuholen. Bitte trage hierfür deinen Nachnamen und deine Email Adresse ein.</p>
+            </div>
+                <form>
+                    <div class="form group">
+                    <label for="name"><h1 style="font-size: 1rem">Name</h1></label>
+                    <input type="text" class="form-control" placeholder=" Name" name="search" v-model="name" id ="name" size="40">
+                    <div class="form group">
+                    <label for="email"><h1 style="font-size: 1rem">Email Adresse</h1></label>
+                    <input type="email" class="form-control" placeholder="Email" name="search" v-model="email" id ="email" size="40">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-light btn-lg" style="margin-top: 25px" @click="alertExample3">
+                    Abschicken</button>
+            </form>
+            <div class="row">
+            </div>
+        </div>
 </template>
 
 <!--Load the API from the specified URL
@@ -86,6 +114,8 @@ export default {
                 radius:0,
                 isLoading: false,
                 dist_safety: null,
+                colorx:"#800000",
+                popupActivo5:false,
             }
         },
         components: {
@@ -159,7 +189,16 @@ export default {
                         this.circleBounds = value;
                     }
                 },
+                alertExample3() {
+                    this.$alert(
+                        "Vielen Dank für dein Interesse. Alle weiteren Informationen erhälst du von uns per Email.",
+                        "Erfolgreich abgeschickt",
+                        "success"
+                        // eslint-disable-next-line no-console
+                    ).then(() => console.log("Closed"));
+                }
             },
+
         mounted: function () {
 
             axios
@@ -169,7 +208,6 @@ export default {
                     this.init();
                 })
                 .catch(e => alert(e));
-
         }
     };
 </script>
@@ -182,16 +220,30 @@ export default {
         width: 100%;
         height: 100%;
         background-size: cover;
-        background-position: center center;
+        background-position: 25% 25%;
+        background-repeat: no-repeat;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
         will-change: transform;
         background-image: url("../assets/blattö.jpg");
         background-color: rgba(0,0,0,0.4);
         background-blend-mode: darken;
-        background-repeat: no-repeat;
     }
 
+    #ergebnis h1{
+        font-size: 3vw;
+        height: 10px;
+    }
+
+    #popup{
+        position: fixed;
+        z-index: +1000;
+        margin-top: 37%;
+        margin-left: 90%;
+        background-color: rgb(128, 0, 0);
+        padding: 2%;
+        transition-delay: 10s;
+    }
 
     .fas {
         color: dodgerblue;
@@ -214,7 +266,7 @@ export default {
     .google {
         text-align: left;
         margin-left: 10px;
-        margin-top: 55px;
+        margin-top: 20px;
         width: auto;
         height: 730px;
     }
@@ -245,15 +297,42 @@ export default {
         color: black;
     }
     #result h3 {
-        font-variant: small-caps;
+        color: white;
+        z-index: +100;
     }
+
+    #result form{
+        border: 1px solid white;
+        margin-left: 25%;
+        margin-right: 25%;
+        padding-bottom: 5%;
+        margin-top: 5%;
+        background-color: rgba(111, 111, 111, 0.5) !important;
+    }
+
+    #formular h2{
+        color: white;
+    }
+
+    #formular{
+        margin-top: 100px;
+
+    }
+    #formular p{
+        color: white;
+        text-align: start;
+        margin-right: 25%;
+        margin-left: 25%;
+        margin-top: 10%;
+    }
+
     #prefernce {
-        font-variant: small-caps;
         position: relative;
         right: 40px;
         top: 5px;
         left: 1190px;
-        color: black;
+        color: white;
+        z-index: +100;
     }
     #result h5 {
         color: black;
@@ -263,9 +342,11 @@ export default {
     }
     #result h1 {
         text-align: left;
-        font-size: 2.5vw;
+        font-size: 2.5em;
         color: white;
         font-variant-caps: inherit;
+        height: 5px;
+        margin-top: 70px;
     }
     #result h3 {
     }
@@ -277,10 +358,22 @@ export default {
         text-align: left;
         bottom: 10px;
     }
-    .col-md-5 {
-        text-align: center;
-        top: 105px;
+
+    #name {
+        width: 50%;
+        margin-left: 25%;
     }
+
+    #email{
+        width: 50%;
+        margin-left: 25%;
+    }
+
+ label{
+    color: white;
+     font-size: 1.5rem;
+     margin-top: 25px;
+}
     .col-md-9 {
         text-align: left;
         max-width: 100%;

@@ -6,16 +6,17 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-        <div class="caption-show text-center">
-        <h1>Deine Präferenzen</h1>
-        <h3>Hier hast du die Möglichkeit die Präferenzen für <br><h1><span>{{city}}</span></h1>anzupassen</h3></div>
-    </div>
+        <div class="row ">
+            <div class="caption-show text-center">
+                <h1>Deine Präferenzen</h1>
+                <h3>Hier hast du die Möglichkeit die Präferenzen für <br><h1><span>{{city}}</span></h1>anzupassen</h3>
+            </div>
+        </div>
+
         <div class="sliderBackground"></div>
-        <div class="row">
-        <div class="col-2"></div>
-        <div class="col-10">
-        <form class="sliderFront"  @submit="getFullUser()" action="#/result">
+    <div class="row" id="front">
+        <div class="col">
+            <form class="sliderFront"  @submit="getFullUser()" action="#/result">
             <div class="form-group">
                 <div class="showContent">
                     <h3>Nähe Bahnhof</h3>
@@ -114,13 +115,13 @@
                     </div>
                 </div>
             </div>
-
+            <div class="col-1"></div>
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-10">
+            <div class="col text-center">
                <!-- <router-link to="/result" class="nav-link"><button type="button" name="action" class="btn btn-outline-light btn-lg" data-target="#navbarResponsive" id="buttonshow">Zu deiner Wohngegend</button></router-link>-->
-                    <button @click="getFullUser" type="submit" class="btn btn-outline-light btn-lg">Abschicken</button>
-                </div>
+                    <button to="/result" @click="getFullUser" type="submit" class="btn btn-outline-light btn-lg" data-target="#navbarResponsive" id="buttonshow">Zu deiner Wohngegend</button>
+            </div>
+                <div class="col-1"></div>
             </div>
         </form>
         </div>
@@ -217,16 +218,15 @@
     }
     .sliderFront{
         margin-left: 0px;
-        margin-top: 450px;
-
+        margin-top: 250px;
+        z-index: +100;
     }
     #buttonshow{
         z-index: +100;
         padding: 20px 50px;
         border-radius: 15px;
-        font-size: 1.5rem;
+        font-size: 1.4vw;
         background-color: rgba(111, 111, 111, 0.5) !important;
-        position: center;
         margin-left: 10%;
     }
 
@@ -272,10 +272,12 @@
         background-image: url("../assets/mihai-lazar-8TDltliWdJY-unsplash.jpg");
         background-color: rgba(0,0,0,0.4);
         background-blend-mode: darken;
-        background-repeat: no-repeat
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
+
     .vue {
-margin-left: 10px;
+
         margin-right: 10px;
         right: 50%;
         bottom:10px;
@@ -286,6 +288,7 @@ margin-left: 10px;
     .vue h4{
         text-align: center;
         padding-left: 0px;
+        z-index: +10;
     }
     #custom-handle {
         width: 2em;
@@ -403,6 +406,10 @@ margin-left: 10px;
         background-color: maroon;
         border-radius: 15px;
     }
+    .vue .vue-slider{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 
     .vue-slider:hover .vue-slider-process {
         background-color: #c5281c;
@@ -436,17 +443,19 @@ margin-left: 10px;
         border: 3px solid #ffffff;
         border-radius: 10px;
         padding: .6vw 1.3vw;
-        width: 75%;
         background-color: rgba(0, 0, 0, 0.6) !important;
         color: white;
-        margin-top: 5px;
+        margin-left: 25%;
+        width: 50%;
+        z-index: +100;
+        margin-top: 50px;
     }
     @media screen and (max-width: 60em){
         .form-group h3{
             color: white;
             font-size: 1.1em;
             text-align: center;
-
+            z-index: +100;
         }
     }
 
@@ -457,9 +466,10 @@ margin-left: 10px;
 
     .showContent{
         text-align: center;
+        z-index: +100;
     }
     .showContent .vue-slider{
-        margin-right: 3%;
+
     }
 
     .valShow{
@@ -470,5 +480,9 @@ margin-left: 10px;
 
     .offset .col-11{
         padding: 0px;
+    }
+
+    #front{
+        margin-top: 10%;
     }
 </style>

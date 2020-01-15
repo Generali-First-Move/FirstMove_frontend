@@ -10,7 +10,7 @@ import router from './router'
 
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
-
+import VueSimpleAlert from "vue-simple-alert";
 
 
 import Slider from '@jeremyhamm/vue-slider'
@@ -22,6 +22,8 @@ Vue.component('VueSlider', VueSlider);
 require("dotenv").config();
 
 require('bootstrap');
+
+Vue.use(VueSimpleAlert);
 
 Vue.use(VueGoogleMaps, {
     load: {
@@ -64,4 +66,7 @@ Vue.use(Vuesax, {
     // options here
 });
 
+//alert
 
+
+Vue.use(VueSimpleAlert);
