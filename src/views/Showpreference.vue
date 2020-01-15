@@ -15,14 +15,14 @@
         <div class="row">
         <div class="col-2"></div>
         <div class="col-10">
-        <form class="sliderFront">
+        <form class="sliderFront"  @submit="getFullUser()" action="#/result">
             <div class="form-group">
                 <div class="showContent">
                     <h3>Nähe Bahnhof</h3>
                     <div class="vue">
                         <!-- default props -->
-                        <vue-slider ref="slider" v-model="value0" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value0 }}</h4>
+                        <vue-slider ref="slider" v-model="train" :max="max" :min="min"></vue-slider>
+                        <h4>{{ train }}</h4>
                     </div>
                 </div>
             </div>
@@ -32,8 +32,8 @@
                     <h3>Gute Busanbindung</h3>
                     <div class="vue">
                         <!-- default props -->
-                        <vue-slider ref="slider" v-model="value1" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value1 }}</h4>
+                        <vue-slider ref="slider" v-model="bus" :max="max" :min="min"></vue-slider>
+                        <h4>{{ bus }}</h4>
                     </div>
                 </div>
             </div>
@@ -43,8 +43,8 @@
                     <h3>Uni Nähe</h3>
                     <div class="vue">
                         <!-- default props -->
-                        <vue-slider ref="slider" v-model="value2" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value2 }}</h4>
+                        <vue-slider ref="slider" v-model="uni" :max="max" :min="min"></vue-slider>
+                        <h4>{{ uni }}</h4>
                     </div>
                 </div>
             </div>
@@ -54,8 +54,8 @@
                     <h3>Einkaufsmöglichkeiten</h3>
                     <div class="vue">
                         <!-- default props -->
-                        <vue-slider ref="slider" v-model="value3" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value3 }}</h4>
+                        <vue-slider ref="slider" v-model="shopping" :max="max" :min="min"></vue-slider>
+                        <h4>{{ shopping }}</h4>
                     </div>
                 </div>
             </div>
@@ -65,8 +65,8 @@
                     <h3>Park Nähe</h3>
                     <div class="vue">
                         <!-- default props -->
-                        <vue-slider ref="slider" v-model="value4" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value4 }}</h4>
+                        <vue-slider ref="slider" v-model="park" :max="max" :min="min"></vue-slider>
+                        <h4>{{ park }}</h4>
                     </div>
                 </div>
             </div>
@@ -76,19 +76,8 @@
                     <h3>Sportanlagen</h3>
                     <div class="vue">
                         <!-- default props -->
-                        <vue-slider ref="slider" v-model="value5" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value5 }}</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="showContent">
-                    <h3>Schwimmbad Nähe</h3>
-                    <div class="vue">
-                        <!-- default props -->
-                        <vue-slider ref="slider" v-model="value6" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value6 }}</h4>
+                        <vue-slider ref="slider" v-model="sport" :max="max" :min="min"></vue-slider>
+                        <h4>{{ sport }}</h4>
                     </div>
                 </div>
             </div>
@@ -98,8 +87,8 @@
                     <h3>Innenstadt Nähe</h3>
                     <div class="vue">
                         <!-- default props -->
-                        <vue-slider ref="slider" v-model="value7" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value7 }}</h4>
+                        <vue-slider ref="slider" v-model="center" :max="max" :min="min"></vue-slider>
+                        <h4>{{ center }}</h4>
                     </div>
                 </div>
             </div>
@@ -109,8 +98,8 @@
                     <h3>Nachtleben</h3>
                     <div class="vue">
                         <!-- default props -->
-                        <vue-slider ref="slider" v-model="value8" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value8 }}</h4>
+                        <vue-slider ref="slider" v-model="night" :max="max" :min="min"></vue-slider>
+                        <h4>{{ night }}</h4>
                     </div>
                 </div>
             </div>
@@ -120,8 +109,8 @@
                     <h3>Sicherheit</h3>
                     <div class="vue">
                         <!-- default props -->
-                        <vue-slider ref="slider" v-model="value9" :max="max" :min="min"></vue-slider>
-                        <h4>{{ value9 }}</h4>
+                        <vue-slider ref="slider" v-model="safety" :max="max" :min="min"></vue-slider>
+                        <h4>{{ safety }}</h4>
                     </div>
                 </div>
             </div>
@@ -129,7 +118,8 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-10">
-               <router-link to="/result" class="nav-link"><button type="button" name="action" class="btn btn-outline-light btn-lg" data-target="#navbarResponsive" id="buttonshow">Zu deiner Wohngegend</button></router-link>
+               <!-- <router-link to="/result" class="nav-link"><button type="button" name="action" class="btn btn-outline-light btn-lg" data-target="#navbarResponsive" id="buttonshow">Zu deiner Wohngegend</button></router-link>-->
+                    <button @click="getFullUser" type="submit" class="btn btn-outline-light btn-lg">Abschicken</button>
                 </div>
             </div>
         </form>
@@ -141,39 +131,64 @@
 
 
 
-<script>
+<script language="JavaScript">
+
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/antd.css'
     import axios from 'axios'
-    export default
-    {
+
+
+    export default {
         components: {VueSlider},
-        data ()
-        {
-            return{
+
+        data(){
+            return {
+
                 city: "",
-                min:1,
-                max:5,
-                value0: 3,
-                value1: 3,
-                value2: 3,
-                value3: 3,
-                value4: 3,
-                value5: 3,
-                value6: 3,
-                value7: 3,
-                value8: 3,
-                value9: 3,
+                min: 1,
+                max: 10,
+                train: 1,
+                bus: 1,
+                uni: 1,
+                shopping: 1,
+                park: 1,
+                sport: 1,
+                swim: 1,
+                center: 1,
+                night: 1,
+                safety: 1,
+            }
+        },
+        methods: {
+            getFullUser: function(){
+                axios
+                    .post('api/user/pref', {
+                        city: this.city,
+                        dist_train_station: this.train,
+                        dist_bus_station: this.bus,
+                        dist_uni: this.uni,
+                        dist_shopping: this.shopping,
+                        dist_park: this.park,
+                        dist_sport: this.sport,
+                        dist_swimming: this.swim,
+                        dist_center: this.center,
+                        dist_nightlife: this.night,
+                        dist_safety: this.safety
+                    })
+                    .then(function () {
+                        alert("Added all prefs");
+                    })
+                    .catch(e => alert(e));
             }
         },
         mounted() {
             axios
                 .get('api/user')
-                .then(response =>{
+                .then(response => {
                     this.city = response.data;
                 })
                 .catch(e => alert(e));
-        }
+        },
     }
 </script>
 
@@ -212,6 +227,7 @@
         font-size: 1.5rem;
         background-color: rgba(111, 111, 111, 0.5) !important;
         position: center;
+        margin-left: 10%;
     }
 
     #buttonshow:hover{

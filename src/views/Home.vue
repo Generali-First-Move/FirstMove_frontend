@@ -50,7 +50,7 @@
                     .then(function () {
                         alert("Stadt wurde dem Benutzer erfolgreich hinzugefügt!");
                     })
-                    .catch(e => alert(e));
+                    .catch();
             },
             scrollIntobutton(evt) {
                 evt.preventDefault()

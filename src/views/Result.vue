@@ -2,27 +2,28 @@
     <div id="result" class="offset">
         <br>
         <div class="sliderBackground2"></div>
-        <div class="row">
+
+            <div class="row">
             <div class="col-md-5">
-                <h1>Ihre Auswahl:</h1>
+                <h1>Deine Präferenzen</h1>
+                <h3>Hier hast du die Möglichkeit die a für <br><h1><span>{{dist_safety}}</span></h1>anzupassen</h3>
+                <!--<h1>Ihre Auswahl:</h1>-->
+           </div>
                 <h3 id="prefernce">Persönliche Preferenzen:</h3>
                 <form action="/change" id="filter">
-                    <button id="btn-filter" type="button" class="btn btn-primary px-3"><i class="fas fa-filter"
-                                                                                          aria-hidden="true"></i>Filter
+                    <button id="btn-filter" type="button" class="btn btn-primary px-3"><i class="fas fa-filter" aria-hidden="true"></i>Filter
                     </button>
 
                 </form>
             </div>
-        </div>
         <div class="form-group google" id="app">
             <div v-show="!isLoading">
                 <google ref="mapRef" :gmarkers="gmarkers" :center="center" :radius="radius" :zoom="zoom"/>
             </div>
         </div>
-        <div class="col-md-3">
 
-        </div>
     </div>
+
 </template>
 
 <!--Load the API from the specified URL
@@ -64,12 +65,13 @@ export default {
 }
 </script>
 -->
-<script>
+<script language="JavaScript">
     //import * as VueGoogleMaps from 'vue2-google-maps';
     //var lat = document.getElementById("lat"); //this will select the input with  id = lat
     //var lng = document.getElementById("lng"); // this will select the input with id = lng
     //import axios from 'axios'
     import GoogleMap from '../components/GoogleMap.vue'
+    import axios from "axios";
     export default {
         "name":"GoogleMap",
         data: function () {
@@ -83,9 +85,8 @@ export default {
                 gmarkers:[],
                 radius:0,
                 isLoading: false,
+                dist_safety: null,
             }
-        },
-        computed:{
         },
         components: {
             'google': GoogleMap
@@ -93,12 +94,27 @@ export default {
         methods:
             {
                 init() {
-                    //console.log("marker setzen");
-                    this.addMarker(1,50.7753455, 6.0838868, "67FF7B", 1500);
-                    this.addMarker(2,50.774720, 6.015920, "00FF22",3000);
-                    this.addMarker(3,50.774720, 5.905920, "5BF303",1500);
+                    // eslint-disable-next-line no-console
+                    console.log(this.dist_safety);
+                    if(this.dist_safety == 5) {
+                        this.addMarker(1,50.7663455, 6.0838868, "67FF7B", 1500);
+                    }
+                    if(this.dist_safety == 4) {
+                        this.addMarker(1,50.7553455, 6.0838868, "67FF7B", 1500);
+                    }
+                    if(this.dist_safety == 3) {
+                        this.addMarker(1,50.7443455, 6.0838868, "67FF7B", 1500);
+                    }
+                    if(this.dist_safety == 2) {
+                        this.addMarker(1,50.7353455, 6.0838868, "67FF7B", 1500);
+                    }
+                    if(this.dist_safety == 1) {
+                        this.addMarker(1,50.7223455, 6.0838868, "67FF7B", 1500);
+                    }
+                    //this.addMarker(2,50.774720, 6.015920, "00FF22",3000);
+                    //this.addMarker(3,50.774720, 5.905920, "5BF303",1500);
                     //this.updateCenter(23,11);
-                    this.updateCircle("radius",2000);
+                    this.updateCircle("radius",200);
                 },
                 addMarker(id, lat, lng, fillColor, radius) {
                     this.gmarkers.push({
@@ -145,25 +161,16 @@ export default {
                 },
             },
         mounted: function () {
-            //console.log('Warte auf Post');
-            // let self = this;
-            //console.log(self.$refs); // Shows the mapRef object reference
-            // console.log(self.$refs.mapRef); // returns undefined ???
-            this.init();
-            /*
+
             axios
-                .post('http://localhost:8081/?search=f#/result')
+                .get('api/user/pref')
                 .then(response => {
-                    this.id = response.data;
-                    this.name = response.data;
-                    this.center = response.data;
-                    this.position = response.data;
-                    this.zoom = response.data;
-                    alert("Gmap Daten wurden erfolgreich übertragen!");
+                    this.dist_safety = response.data;
+                    this.init();
                 })
                 .catch(e => alert(e));
-       */
-        },
+
+        }
     };
 </script>
 <style>
@@ -428,61 +435,6 @@ export default {
         width: 100%;
         position: absolute;
     }
-    .blue.accent-1 {
-        background-color: #82b1ff !important;
-    }
-    .form-header {
-        padding: 1rem;
-        margin-top: -3.13rem;
-        margin-bottom: 3rem;
-        color: #fff;
-        text-align: center;
-        border-radius: .125rem;
-        -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-    }
-    .Infobox {
-        position: relative;
-        top: 30px;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-    .card-body {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-        border-radius: 0 !important;
-    }
-    .Content {
-        position: relative;
-        padding-top: 20px;
-    }
-    .gm-style-iw {
-        width: auto !important;
-        top: 0 !important;
-        left: 0 !important;
-        border-radius: 2px 2px 0 0;
-    }
-    .bonbon {
-        width: 200px;
-        height: 60px;
-        background: yellow; /* old browsers */
-        background: linear-gradient(to bottom, white, blue);
-        box-shadow: inset 0px 0px 6px #fff, inset 0px -1px 6px #fff;
-        border: 1px solid #5ea617;
-        border-radius: 1em;
-        margin: 1em;
-    }
-    .bonbon.rot {
-        background: linear-gradient(to bottom, white, red);
-    }
-    .bonbon.orange {
-        background: linear-gradient(to bottom, white, orange);
-    }
-    .bonbon:hover,
-    .bonbon:focus {
-        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-    }
+
+
 </style>
